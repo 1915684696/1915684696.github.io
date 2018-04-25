@@ -5,23 +5,20 @@
   
 
   
-  <title>ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务 | Ning</title>
+  <title>JavaScript读书笔记（二） | Ning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在写Oracle作业是遇到了这个问题：老师让查数据库SGA各部分组成的大小，在超级管理员用户下输入shutdown immediate;然后在输入startup;回车然后就出错了，自己查询原因后已成功解决。">
-<meta name="keywords" content="Oracle">
+  <meta name="description" content="这里边的内容可能回比较杂，但是比第一篇更简洁。">
+<meta name="keywords" content="读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务">
-<meta property="og:url" content="http://yoursite.com/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/index.html">
+<meta property="og:title" content="JavaScript读书笔记（二）">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/JavaScript读书笔记（二）/index.html">
 <meta property="og:site_name" content="Ning">
-<meta property="og:description" content="最近在写Oracle作业是遇到了这个问题：老师让查数据库SGA各部分组成的大小，在超级管理员用户下输入shutdown immediate;然后在输入startup;回车然后就出错了，自己查询原因后已成功解决。">
+<meta property="og:description" content="这里边的内容可能回比较杂，但是比第一篇更简洁。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.imgur.com/efBwQGr.png">
-<meta property="og:image" content="https://i.imgur.com/StvEyoK.jpg">
-<meta property="og:updated_time" content="2018-04-23T14:33:56.256Z">
+<meta property="og:updated_time" content="2018-04-24T15:02:19.986Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务">
-<meta name="twitter:description" content="最近在写Oracle作业是遇到了这个问题：老师让查数据库SGA各部分组成的大小，在超级管理员用户下输入shutdown immediate;然后在输入startup;回车然后就出错了，自己查询原因后已成功解决。">
-<meta name="twitter:image" content="https://i.imgur.com/efBwQGr.png">
+<meta name="twitter:title" content="JavaScript读书笔记（二）">
+<meta name="twitter:description" content="这里边的内容可能回比较杂，但是比第一篇更简洁。">
   
     <link rel="alternate" href="/atom.xml" title="Ning" type="application/atom+xml">
   
@@ -68,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-JavaScript读书笔记（二）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/" class="article-date">
-  <time datetime="2018-04-15T10:32:53.000Z" itemprop="datePublished">2018-04-15</time>
+    <a href="/2018/04/24/JavaScript读书笔记（二）/" class="article-date">
+  <time datetime="2018-04-24T13:34:12.000Z" itemprop="datePublished">2018-04-24</time>
 </a>
     
   </div>
@@ -82,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务
+      JavaScript读书笔记（二）
     </h1>
   
 
@@ -90,21 +87,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在写Oracle作业是遇到了这个问题：老师让查数据库SGA各部分组成的大小，在超级管理员用户下输入<code>shutdown immediate;</code>然后在输入<code>startup;</code>回车然后就出错了，自己查询原因后已成功解决。<a id="more"></a><br><br><img src="https://i.imgur.com/efBwQGr.png" alt=""><br>我是将Oracle装在了虚拟机里，安装成功后并没有进行监听程序的配置，重新打开后就会遇到这个问题。这个错误的原因就是客户端未监听到实例服务名，监听配置文件Listener.ora是可以不指定监听的服务名的，Oracle10g也没有。<br><br>既然这个错误出现了，首先咱们可以考虑重启监听程序试试，若还是不行的话就考虑改Listener.ora文件，在Listener.ora中增加指定监听的实例名，这样就解决了。方法如下：<br><br>在Listener.ora中增加以下代码</p>
-<pre><code>(SID_DESC =
-    (GLOBAL_DBNAME = ORCL)
-    (ORACLE_HOME = D:\app\Administrator\product\11.2.0\dbhome_1)
-    (SID_NAME = ORCL)
-)
-</code></pre><p>如下图：<br><img src="https://i.imgur.com/StvEyoK.jpg" alt=""><br>然后重启监听服务就解决了</p>
-
+        <p>这里边的内容可能回比较杂，但是比第一篇更简洁。<a id="more"></a></p>
+<h2 id="一个复杂的数组例子"><a href="#一个复杂的数组例子" class="headerlink" title="一个复杂的数组例子"></a>一个复杂的数组例子</h2><pre><code>var box = [
+    {                                //第一个元素是对象
+    name : &apos;宁浩&apos;,
+    age : 19,
+    run : function(){
+        return &apos;我是return出来的&apos;;
+        }
+    },
+    [&apos;张三&apos;,&apos;李四&apos;,new Object()],    //第二个元素是数组
+    &apos;杭州&apos;,                            //第三个元素是字符串
+    25 + 25,                        //第四个元素是数值
+    new Array(1,2,3)                //第五个元素是数组
+    ];
+alert(box);
+</code></pre><h2 id="数组中的几个方法"><a href="#数组中的几个方法" class="headerlink" title="数组中的几个方法"></a>数组中的几个方法</h2><h4 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h4><p>对象或数组都具有toLocaleString()、toString()和valueOf()方法，数组会将每个值进行字符串的拼接，以逗号隔开。<br>使用join()方法可以使用不同的分割符</p>
+<pre><code>var box = [&apos;张三&apos;,&apos;李四&apos;];
+alert(box);                        //隐式调用toString()方法，弹出框 张三，李四
+alert(box.toString());            //弹出框 张三，李四
+alert(box.toLocaleString());    //弹出框 张三，李四
+alert(box.join(&apos;|&apos;));            //弹出框 张三|李四
+</code></pre><h4 id="栈和队列的方法"><a href="#栈和队列的方法" class="headerlink" title="栈和队列的方法"></a>栈和队列的方法</h4><p>跟数据结构中的栈相同，JavaScript的数组可以看做是栈，提供了push()方法、pop()方法和shift()方法。push()方法可以接受任意数量的参数并将它们逐个添加到数组的末尾，返回修改后的长度。pop()方法可以从数组末尾移除最后一个元素，减少数组的length值，返回移除的元素。shift()方法则是从数组的前端移除一个元素，返回移除的元素。</p>
+<pre><code>var box = [&apos;张三&apos;,28];
+alert(box.push(&apos;杭州&apos;));        //3
+alert(box);                    //张三,28,杭州
+box.pop();
+alert(box);                    //张三,28
+alert(box.shift());            //张三
+alert(box);                    //28
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/" data-id="cjged94hl0003yg9gmverz4fd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/24/JavaScript读书笔记（二）/" data-id="cjged94hh0001yg9g473yw2ux" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
 
     </footer>
   </div>
@@ -112,19 +131,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/04/18/JavaScript读书笔记（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          JavaScript学习笔记（一）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/15/为Hexo主题maupassant添加LiveRe评论系统/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/04/18/JavaScript读书笔记（一）/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">为Hexo主题maupassant添加LiveRe评论系统</div>
+      <div class="article-nav-title">JavaScript学习笔记（一）</div>
     </a>
   
 </nav>

@@ -5,25 +5,25 @@
   
 
   
-  <title>JavaScript学习笔记 | Ning</title>
+  <title>JavaScript学习笔记（一） | Ning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="笔记参考《JavaScript实战》（西南财经大学出版社）">
 <meta name="keywords" content="读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript学习笔记">
-<meta property="og:url" content="http://yoursite.com/2018/04/18/JavaScript学习笔记/index.html">
+<meta property="og:title" content="JavaScript学习笔记（一）">
+<meta property="og:url" content="http://yoursite.com/2018/04/18/JavaScript读书笔记（一）/index.html">
 <meta property="og:site_name" content="Ning">
 <meta property="og:description" content="笔记参考《JavaScript实战》（西南财经大学出版社）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-23T14:42:52.842Z">
+<meta property="og:updated_time" content="2018-04-24T13:46:32.034Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript学习笔记">
+<meta name="twitter:title" content="JavaScript学习笔记（一）">
 <meta name="twitter:description" content="笔记参考《JavaScript实战》（西南财经大学出版社）">
   
     <link rel="alternate" href="/atom.xml" title="Ning" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/favicon.ico">
+    <link rel="icon" href="/img/circle.ico">
   
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -65,9 +65,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-JavaScript学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-JavaScript读书笔记（一）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/18/JavaScript学习笔记/" class="article-date">
+    <a href="/2018/04/18/JavaScript读书笔记（一）/" class="article-date">
   <time datetime="2018-04-18T00:24:10.000Z" itemprop="datePublished">2018-04-18</time>
 </a>
     
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript学习笔记
+      JavaScript学习笔记（一）
     </h1>
   
 
@@ -164,11 +164,32 @@ function box(){
 }
 alert(box(1,2,3,4,5,6));
 </code></pre><p>arguments对象的length属性可以可到参数的数量。</p>
-
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><h4 id="Object的创建"><a href="#Object的创建" class="headerlink" title="Object的创建"></a>Object的创建</h4><p>object的创建分两种，一种是new运算符，另一种是字面量表示法。（new跟Java类似）<br>使用new运算符，new也可省略</p>
+<pre><code>var box = new Object();
+box.name = &apos;宁浩&apos;;
+box.age = 19;
+</code></pre><p>使用字面量方式创建Object</p>
+<pre><code>var box = {
+    name : &apos;宁浩&apos;,        //这里注意一定是“,”符号，“；”会出错
+    age : 19;
+}
+</code></pre><p>或者</p>
+<pre><code>var box ={};
+box.name = &apos;宁浩&apos;,
+box.age = &apos;19&apos;;
+</code></pre><h4 id="Object属性的输出方式"><a href="#Object属性的输出方式" class="headerlink" title="Object属性的输出方式"></a>Object属性的输出方式</h4><pre><code>alert(box.age);
+alert(box[&apos;age&apos;];
+</code></pre><h4 id="为Object创建方法"><a href="#为Object创建方法" class="headerlink" title="为Object创建方法"></a>为Object创建方法</h4><pre><code>var box = {
+    run : function(){
+        return &apos;我是return&apos;;
+    }
+}
+alert(box.run());            //调用对象中的方法
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/18/JavaScript学习笔记/" data-id="cjgdok9sx0000fg9ga75htjl8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/18/JavaScript读书笔记（一）/" data-id="cjged94h90000yg9gf437vp3a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
@@ -178,6 +199,15 @@ alert(box(1,2,3,4,5,6));
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/04/24/JavaScript读书笔记（二）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript读书笔记（二）
+        
+      </div>
+    </a>
   
   
     <a href="/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/" id="article-nav-older" class="article-nav-link-wrap">
@@ -211,7 +241,7 @@ alert(box(1,2,3,4,5,6));
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/学习计划/" style="font-size: 10px;">学习计划</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+      <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/学习计划/" style="font-size: 10px;">学习计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
     </div>
   </div>
 
@@ -233,7 +263,11 @@ alert(box(1,2,3,4,5,6));
       <ul>
         
           <li>
-            <a href="/2018/04/18/JavaScript学习笔记/">JavaScript学习笔记</a>
+            <a href="/2018/04/24/JavaScript读书笔记（二）/">JavaScript读书笔记（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/18/JavaScript读书笔记（一）/">JavaScript学习笔记（一）</a>
           </li>
         
           <li>
@@ -246,10 +280,6 @@ alert(box(1,2,3,4,5,6));
         
           <li>
             <a href="/2018/03/20/成功的梯子/">成功的梯子</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/20/创新实践学习计划/">创新实践学习计划</a>
           </li>
         
       </ul>
