@@ -15,10 +15,12 @@
 <meta property="og:site_name" content="Ning">
 <meta property="og:description" content="笔记参考《JavaScript实战》（西南财经大学出版社）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-29T15:27:09.713Z">
+<meta property="og:image" content="https://i.imgur.com/trQZx7F.gif">
+<meta property="og:updated_time" content="2018-05-08T15:26:13.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript学习笔记">
 <meta name="twitter:description" content="笔记参考《JavaScript实战》（西南财经大学出版社）">
+<meta name="twitter:image" content="https://i.imgur.com/trQZx7F.gif">
   
     <link rel="alternate" href="/atom.xml" title="Ning" type="application/atom+xml">
   
@@ -88,7 +90,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>笔记参考《JavaScript实战》（西南财经大学出版社）<a id="more"></a></p>
-<h2 id="使用JavaScript"><a href="#使用JavaScript" class="headerlink" title="使用JavaScript"></a>使用JavaScript</h2><p><code>&lt;script&gt;XXX&lt;/script&gt;</code>这组标签，是用于在html页面中插入js的主要方法。它有以下几个属性：</p>
+<h2 id="一、使用JavaScript"><a href="#一、使用JavaScript" class="headerlink" title="一、使用JavaScript"></a>一、使用JavaScript</h2><p><code>&lt;script&gt;XXX&lt;/script&gt;</code>这组标签，是用于在html页面中插入js的主要方法。它有以下几个属性：</p>
 <ul>
 <li>charst：可选，表示src属性表示的字符集。很少用。</li>
 <li>defer：可选，表示脚本可以延迟到文档完全被解析和显示之后再执行。很少用。</li>
@@ -98,7 +100,7 @@
 </ul>
 <h3 id="将JavaScript另存为-js文件"><a href="#将JavaScript另存为-js文件" class="headerlink" title="将JavaScript另存为.js文件"></a>将JavaScript另存为.js文件</h3><pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;demo1.js&quot;&gt;&lt;/script&gt;
 </code></pre><p>这时里边不能有任何代码<br><br>我们通常会将<code>&lt;script&gt;&lt;/script&gt;</code>标签放在<code>&lt;head&gt;····&lt;/head&gt;</code>之间，有事也会放在<code>&lt;body&gt;····&lt;/body&gt;</code>之间。</p>
-<h2 id="JavaScript数据类型"><a href="#JavaScript数据类型" class="headerlink" title="JavaScript数据类型"></a>JavaScript数据类型</h2><h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h4><p>该类型只有一个特殊的值undefined。当使用var声明变量但没有对其初始化时该值就是undefined.</p>
+<h2 id="二、JavaScript数据类型"><a href="#二、JavaScript数据类型" class="headerlink" title="二、JavaScript数据类型"></a>二、JavaScript数据类型</h2><h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h4><p>该类型只有一个特殊的值undefined。当使用var声明变量但没有对其初始化时该值就是undefined.</p>
 <h4 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h4><p>同样 只有一个特殊的值null。表示空对象的引用（指针）。用typeof检测会返回object。</p>
 <h4 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h4><p>只有两个值true和false。</p>
 <h4 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h4><p>包括两种数值：整形和浮点型。</p>
@@ -139,7 +141,7 @@ alert(box.toString(16));    //a,十六进制输出
 <pre><code>var box = new Object(2);     //Object类型，值为2
 var age = box + 2;           //可以和普通变量计算
 alert(age);                  //输出结果，转型为Number类型4
-</code></pre><h2 id="流程控制语句之for…in语句"><a href="#流程控制语句之for…in语句" class="headerlink" title="流程控制语句之for…in语句"></a>流程控制语句之for…in语句</h2><p>for…in语句是一中迭代语句，可以用来枚举对象的属性，如：</p>
+</code></pre><h2 id="三、流程控制语句之for…in语句"><a href="#三、流程控制语句之for…in语句" class="headerlink" title="三、流程控制语句之for…in语句"></a>三、流程控制语句之for…in语句</h2><p>for…in语句是一中迭代语句，可以用来枚举对象的属性，如：</p>
 <pre><code>var box = {
   &apos;name&apos; : &apos;高寒&apos;;
   &apos;age&apos; : 28;
@@ -148,7 +150,7 @@ alert(age);                  //输出结果，转型为Number类型4
 for(var p in box){
   alert(p);
 } `
-</code></pre><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h4 id="函数的声明"><a href="#函数的声明" class="headerlink" title="函数的声明"></a>函数的声明</h4><p>JavaScript统一使用function关键字声明函数，后跟一组参数以及函数体，如：</p>
+</code></pre><h2 id="四、函数"><a href="#四、函数" class="headerlink" title="四、函数"></a>四、函数</h2><h4 id="函数的声明"><a href="#函数的声明" class="headerlink" title="函数的声明"></a>函数的声明</h4><p>JavaScript统一使用function关键字声明函数，后跟一组参数以及函数体，如：</p>
 <pre><code>function box(){
 alert(&apos;只有函数被调用，我才会被之执行&apos;);
 }
@@ -164,7 +166,7 @@ function box(){
 }
 alert(box(1,2,3,4,5,6));
 </code></pre><p>arguments对象的length属性可以可到参数的数量。</p>
-<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><h4 id="Object的创建"><a href="#Object的创建" class="headerlink" title="Object的创建"></a>Object的创建</h4><p>object的创建分两种，一种是new运算符，另一种是字面量表示法。（new跟Java类似）<br>使用new运算符，new也可省略</p>
+<h2 id="五、对象"><a href="#五、对象" class="headerlink" title="五、对象"></a>五、对象</h2><h4 id="Object的创建"><a href="#Object的创建" class="headerlink" title="Object的创建"></a>Object的创建</h4><p>object的创建分两种，一种是new运算符，另一种是字面量表示法。（new跟Java类似）<br>使用new运算符，new也可省略</p>
 <pre><code>var box = new Object();
 box.name = &apos;宁浩&apos;;
 box.age = 19;
@@ -185,7 +187,8 @@ alert(box[&apos;age&apos;];
     }
 }
 alert(box.run());            //调用对象中的方法
-</code></pre><h2 id="一个复杂的数组例子"><a href="#一个复杂的数组例子" class="headerlink" title="一个复杂的数组例子"></a>一个复杂的数组例子</h2><pre><code>var box = [
+</code></pre><h2 id="六、数组"><a href="#六、数组" class="headerlink" title="六、数组"></a>六、数组</h2><p>一个复杂的数组例子</p>
+<pre><code>var box = [
     {                                //第一个元素是对象
     name : &apos;宁浩&apos;,
     age : 19,
@@ -199,7 +202,7 @@ alert(box.run());            //调用对象中的方法
     new Array(1,2,3)                //第五个元素是数组
     ];
 alert(box);
-</code></pre><h2 id="数组中的几个方法"><a href="#数组中的几个方法" class="headerlink" title="数组中的几个方法"></a>数组中的几个方法</h2><h4 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h4><p>对象或数组都具有toLocaleString()、toString()和valueOf()方法，数组会将每个值进行字符串的拼接，以逗号隔开。<br>使用join()方法可以使用不同的分割符</p>
+</code></pre><h3 id="数组中的几个方法"><a href="#数组中的几个方法" class="headerlink" title="数组中的几个方法"></a>数组中的几个方法</h3><h4 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h4><p>对象或数组都具有toLocaleString()、toString()和valueOf()方法，数组会将每个值进行字符串的拼接，以逗号隔开。<br>使用join()方法可以使用不同的分割符</p>
 <pre><code>var box = [&apos;张三&apos;,&apos;李四&apos;];
 alert(box);                        //隐式调用toString()方法，弹出框 张三，李四
 alert(box.toString());            //弹出框 张三，李四
@@ -219,11 +222,495 @@ alert(box.reverse());    //5,4,3,2,1
 alert(box);                //5,4,3,2,1
 alert(box.sort());        //1,2,3,4,5
 alert(box);                //1,2,3,4,5
-</code></pre>
+</code></pre><h2 id="七、正则表达式"><a href="#七、正则表达式" class="headerlink" title="七、正则表达式"></a>七、正则表达式</h2><p>正则表达式是一个用来描述字符模式的对象，主要用来验证客户端的输入数据。</p>
+<h4 id="正则表达式的模式修饰符的可选参数"><a href="#正则表达式的模式修饰符的可选参数" class="headerlink" title="正则表达式的模式修饰符的可选参数"></a>正则表达式的模式修饰符的可选参数</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>忽略大小写</td>
+</tr>
+<tr>
+<td>g</td>
+<td>全局匹配</td>
+</tr>
+<tr>
+<td>m</td>
+<td>多行匹配</td>
+</tr>
+</tbody>
+</table>
+<h4 id="正则表达式的两种创建方式"><a href="#正则表达式的两种创建方式" class="headerlink" title="正则表达式的两种创建方式"></a>正则表达式的两种创建方式</h4><p>new运算符和字面量方式。</p>
+<pre><code>var box = new RegExp(&apos;box&apos;，&apos;i&apos;);    //new运算符创建
+var box = /box/i;                    //字面量方式创建
+</code></pre><h4 id="RegExp对象的方法"><a href="#RegExp对象的方法" class="headerlink" title="RegExp对象的方法"></a>RegExp对象的方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test</td>
+<td>在字符串中测试模式匹配，返回true或false</td>
+</tr>
+<tr>
+<td>exec</td>
+<td>在字符串中执行匹配搜索，返回结果数组</td>
+</tr>
+</tbody>
+</table>
+<pre><code>var box = new RegExp(&apos;box&apos;,&apos;i&apos;);
+var str = &apos;This is a Box!&apos;;
+alert(box.test(str));        //弹出框true；
+alert(box.exec(str));        //弹出框Box
+</code></pre><h4 id="String对象的正则表达式方法"><a href="#String对象的正则表达式方法" class="headerlink" title="String对象的正则表达式方法"></a>String对象的正则表达式方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>match(pattern)</td>
+<td>返回pattern中的子串或null</td>
+</tr>
+<tr>
+<td>replace(pattren,replacement)</td>
+<td>用replacement替换pattern</td>
+</tr>
+<tr>
+<td>search(pattren)</td>
+<td>返回字符串中pattern开始位置</td>
+</tr>
+<tr>
+<td>split(pattern)</td>
+<td>返回字符串指定pattern拆分的数组</td>
+</tr>
+</tbody>
+</table>
+<h4 id="获取控制"><a href="#获取控制" class="headerlink" title="获取控制"></a>获取控制</h4><p>正则表达式元字符是包含特殊含义的字符。它们有一些特殊功能，可以控制匹配模式的方式。反斜杠后的元字符将失去其特殊含义。</p>
+<p>字符类：单个字符和数字</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元字符/元符号</th>
+<th>匹配情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">.</td>
+<td>匹配除换行符外的任意字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[a-z0-9]</td>
+<td>匹配括号中的字符集中的任意字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[^a-z0-9]</td>
+<td>匹配任意不在括号中的字符集中的字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\d</td>
+<td>匹配数字</td>
+</tr>
+<tr>
+<td style="text-align:center">\D</td>
+<td>匹配非数字，同[^0-9]相同</td>
+</tr>
+<tr>
+<td style="text-align:center">\w</td>
+<td>匹配字母和数字及_</td>
+</tr>
+<tr>
+<td style="text-align:center">\W</td>
+<td>匹配非字母和数字及_</td>
+</tr>
+</tbody>
+</table>
+<p>字符类：空白字符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元字符</th>
+<th>/元符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\0</td>
+<td>匹配null字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\b</td>
+<td>匹配空格字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\f</td>
+<td>匹配进制字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td>匹配换行符</td>
+</tr>
+<tr>
+<td style="text-align:center">\r</td>
+<td>匹配回车符</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td>匹配制表符</td>
+</tr>
+<tr>
+<td style="text-align:center">\s</td>
+<td>匹配空白字符、空格、制表符、和换行符</td>
+</tr>
+<tr>
+<td style="text-align:center">\S</td>
+<td>匹配非空白字符</td>
+</tr>
+</tbody>
+</table>
+<p>字符类：锚字符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元字符</th>
+<th>匹配情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">^</td>
+<td>行首字符</td>
+</tr>
+<tr>
+<td style="text-align:center">$</td>
+<td>行尾字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\A</td>
+<td>只有匹配字符串开始处</td>
+</tr>
+<tr>
+<td style="text-align:center">\b</td>
+<td>匹配单词边界，词在[]内时无效</td>
+</tr>
+<tr>
+<td style="text-align:center">\B</td>
+<td>匹配非单词边界</td>
+</tr>
+<tr>
+<td style="text-align:center">\G</td>
+<td>匹配当前搜索的开始位置</td>
+</tr>
+<tr>
+<td style="text-align:center">\Z</td>
+<td>匹配字符串结束处或行尾</td>
+</tr>
+<tr>
+<td style="text-align:center">\z</td>
+<td>只匹配字符串结束处</td>
+</tr>
+</tbody>
+</table>
+<p>字符类：重复字符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元字符/元符号</th>
+<th>匹配情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">x?</td>
+<td>匹配0个或1个x</td>
+</tr>
+<tr>
+<td style="text-align:center">x*</td>
+<td>匹配0个或任意多个x</td>
+</tr>
+<tr>
+<td style="text-align:center">x+</td>
+<td>匹配至少一个x</td>
+</tr>
+<tr>
+<td style="text-align:center">(xyz)+</td>
+<td>匹配至少一个(xyz)</td>
+</tr>
+<tr>
+<td style="text-align:center">x{m,n}</td>
+<td>匹配至少m个、最多n个x</td>
+</tr>
+</tbody>
+</table>
+<p>字符类：替代字符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元字符/元符号</th>
+<th>匹配情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">this\</td>
+<td>where\</td>
+<td>logo</td>
+<td>匹配this或where或logo中任意一个</td>
+</tr>
+</tbody>
+</table>
+<p>字符类：记录字符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元字符/元符号</th>
+<th>匹配情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">(string)</td>
+<td>用于反向引用的分组</td>
+</tr>
+<tr>
+<td style="text-align:center">\1或$1</td>
+<td>匹配第一个分组中的内容</td>
+</tr>
+<tr>
+<td style="text-align:center">\2或$2</td>
+<td>匹配第二个分组中的内容</td>
+</tr>
+<tr>
+<td style="text-align:center">\3或$3</td>
+<td>匹配第三个分组中的内容</td>
+</tr>
+</tbody>
+</table>
+<pre><code>/*使用点元字符/
+var pattern = /g..gle/;        //匹配一个任意字符
+var str = &apos;google&apos;;
+alert(pattern.test(str));
+
+/*重复匹配*/
+var pattern = /g.*gle/;        //.匹配0个、一个或多个
+var str = &apos;google&apos;;
+alert(pattern.test(str));
+
+/*使用字符类匹配*/
+var pattern = /g[a-zA-Z_]*gle;    //[a-z]*表示任意个a-z中的字符
+var str = &apos;google&apos;;
+alert(pattern.test(str));
+
+/*使用元符号匹配*/
+var pattern = /g\w*gle/;    //\w*匹配任意多个所有字母数字_
+var str = &apos;google&apos;;
+alert(pattern.test(str));
+
+/*使用锚元字符匹配*/
+var pattern = /^google $/;    //^从开头匹配,$从结尾开始匹配
+var str = &apos;google&apos;;
+alert(pattern.test(str));
+
+/*使用或模式匹配*/
+var pattern = /google|baidu|bing/;    //匹配三种其中一种字符
+var str = &apos;google&apos;;
+alert(pattern.test(str));
+
+/*使用分组模式匹配*/
+var pattern = /(google){4,8}/;    //匹配分组里的字符4-8次
+var str = &apos;googlegoogle&apos;;
+alert(pattern.test(str));
+</code></pre><h4 id="常用的正则表达式"><a href="#常用的正则表达式" class="headerlink" title="常用的正则表达式"></a>常用的正则表达式</h4><pre><code>//检查邮政编码
+var pattern = /[1-9][0-9]{5}/;    //共6位数字，第一位不能为0
+var str = &apos;224000&apos;;
+
+//检查文件压缩包
+var pattern = /[\w]+\.zip|rar|gz/;    //\w表示所有数字和字母加下划线
+var str = &apos;123.zip&apos;;
+
+//删除多余空格
+var pattern = /\s/g;    //g必须全局，才能全部匹配
+var str = &apos;111 222 333&apos;;
+var result = str.replace(pattern,&quot;);
+
+//简单的电子邮箱验证
+var pattern = /^([a-zA-Z0-9_\.\-]@([a-zA-Z0-9_\.\_]+)\.([a-zA-Z]{2,4})$/;
+var str = &apos;yc60.com@gmail.com&apos;;
+alert(pattern.test(str));
+
+var pattern = /^([\w\.\-]+)@([\w\.\-]+)\.([\w]{2,4})$/;
+var str = &apos;yc60.com@gmail.com&apos;
+</code></pre><p>DOM，英文是Document Object Model,即文档对象模型。它描绘了一个层次化的节点树<img src="https://i.imgur.com/trQZx7F.gif" alt=""></p>
+<h3 id="DOM简单操作"><a href="#DOM简单操作" class="headerlink" title="DOM简单操作"></a>DOM简单操作</h3><p>我们可以通过简单的操作定位节点的方法和属性</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">getElementById()</td>
+<td style="text-align:center">获取特定ID元素的节点</td>
+</tr>
+<tr>
+<td style="text-align:center">getELementByTagName()</td>
+<td style="text-align:center">获取相同元素的节点列表</td>
+</tr>
+<tr>
+<td style="text-align:center">getElementByName()</td>
+<td style="text-align:center">获取相同名称的节点列表</td>
+</tr>
+<tr>
+<td style="text-align:center">getAttribute()</td>
+<td style="text-align:center">获取特定元素节点属性的值</td>
+</tr>
+<tr>
+<td style="text-align:center">setAttribute()</td>
+<td style="text-align:center">设置特定元素节点属性的值</td>
+</tr>
+<tr>
+<td style="text-align:center">removeAttribute()</td>
+<td style="text-align:center">移除特定元素节点属性</td>
+</tr>
+</tbody>
+</table>
+<p>当我们获取特定元素节点之后，这个节点对象就被我们获取到了，通过这个节点对象，我们就可以访问它的的属性了。</p>
+<p>|属性|说明|<br>|:-:|:-：|<br>|tagName|获取元素节点的标签名|<br>|innerHTML|获取元素节点里的内容|<br>|id|节点id名称|<br>|title|节点的title属性|<br>|style|css内联样式属性|<br>|className|css元素的类|</p>
+<h3 id="DOM节点属性"><a href="#DOM节点属性" class="headerlink" title="DOM节点属性"></a>DOM节点属性</h3><p>节点可以分为元素节点、属性节点和文本节点，而这些节点又有三个属性nodeName、nodeType、nodeValue。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">节点类型</th>
+<th style="text-align:center">nodeName</th>
+<th style="text-align:center">nodeType</th>
+<th style="text-align:center">nodeValue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">元素</td>
+<td style="text-align:center">元素名称</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">属性</td>
+<td style="text-align:center">属性名称</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">属性值</td>
+</tr>
+<tr>
+<td style="text-align:center">文本</td>
+<td style="text-align:center">#test</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">文本内容（不包括html）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="层次节点属性"><a href="#层次节点属性" class="headerlink" title="层次节点属性"></a>层次节点属性</h3><p>节点的层次结构可以分为父节点与子节点、兄弟节点两种。我们可以通过层次节点属性获取已知的元素节点的其他相关层次的节点。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">childNodes</td>
+<td style="text-align:center">获取当前元素节点的所有子节点</td>
+</tr>
+<tr>
+<td style="text-align:center">firstChild</td>
+<td style="text-align:center">获取当前元素节点的第一个子节点</td>
+</tr>
+<tr>
+<td style="text-align:center">lastChild</td>
+<td style="text-align:center">获取当前元素节点的最后一个子节点</td>
+</tr>
+<tr>
+<td style="text-align:center">ownerDocument</td>
+<td style="text-align:center">获取当前元素节点的文档根节点，相当于document</td>
+</tr>
+<tr>
+<td style="text-align:center">parentNode</td>
+<td style="text-align:center">获取当前节点的父节点</td>
+</tr>
+<tr>
+<td style="text-align:center">nextSibling</td>
+<td style="text-align:center">获取当前节点的前一个同级节点</td>
+</tr>
+<tr>
+<td style="text-align:center">nextSibling</td>
+<td style="text-align:center">获取当前节点的后一个同级节点</td>
+</tr>
+<tr>
+<td style="text-align:center">attributes</td>
+<td style="text-align:center">获取当前元素节点的所有属性节点集合</td>
+</tr>
+</tbody>
+</table>
+<h3 id="节点的操作"><a href="#节点的操作" class="headerlink" title="节点的操作"></a>节点的操作</h3><p>DOM不仅仅可以查找节点，也可以创建节点、复制节点、插入节点、删除节点和替换节点。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">write()</td>
+<td style="text-align:center">这个方法可以把任意字符串插入到文档中</td>
+</tr>
+<tr>
+<td style="text-align:center">createElement()</td>
+<td style="text-align:center">创建一个元素节点</td>
+</tr>
+<tr>
+<td style="text-align:center">appendChild()</td>
+<td style="text-align:center">将新节点追加到子节点列表的末尾</td>
+</tr>
+<tr>
+<td style="text-align:center">createTextNode()</td>
+<td style="text-align:center">创建一个文件节点</td>
+</tr>
+<tr>
+<td style="text-align:center">insertBefore()</td>
+<td style="text-align:center">将新节点插入在前面</td>
+</tr>
+<tr>
+<td style="text-align:center">replaceChild()</td>
+<td style="text-align:center">将新节点替换旧节点</td>
+</tr>
+<tr>
+<td style="text-align:center">cloneNode()</td>
+<td style="text-align:center">复制节点</td>
+</tr>
+<tr>
+<td style="text-align:center">removeChild()</td>
+<td style="text-align:center">移除节点</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/18/JavaScript读书笔记/" data-id="cjgkz41jt0000fw9gpjs0fyfp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/18/JavaScript读书笔记/" data-id="cjgynx7bv0001ec9gerow1afs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
