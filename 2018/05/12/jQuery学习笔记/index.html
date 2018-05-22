@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>jQuery学习笔记 | Ning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jQuery学习笔记分为了这几个方面来学习：">
+<meta name="keywords" content="读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery学习笔记">
+<meta property="og:url" content="http://yoursite.com/2018/05/12/jQuery学习笔记/index.html">
+<meta property="og:site_name" content="Ning">
+<meta property="og:description" content="jQuery学习笔记分为了这几个方面来学习：">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/zJr71c9.png">
+<meta property="og:updated_time" content="2018-05-22T16:30:25.309Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery学习笔记">
+<meta name="twitter:description" content="jQuery学习笔记分为了这几个方面来学习：">
+<meta name="twitter:image" content="https://i.imgur.com/zJr71c9.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Ning" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/circle.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ning</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-jQuery学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/12/jQuery学习笔记/" class="article-date">
+  <time datetime="2018-05-12T01:34:09.000Z" itemprop="datePublished">2018-05-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>jQuery学习笔记分为了这几个方面来学习：<br><a id="more"></a><br><img src="https://i.imgur.com/zJr71c9.png" alt=""></p>
+<h2 id="js对象和jquery对象的区别"><a href="#js对象和jquery对象的区别" class="headerlink" title="js对象和jquery对象的区别"></a>js对象和jquery对象的区别</h2><p>jquery就是js兑现的new object生成的普通对象，然后在jquery对象中加入了很多的方法，经过不断地完善，就形成了jquery对象。</p>
+<pre><code>&lt;script&gt;
+function $(){
+    obj = new Object();
+    obj.username=&apos;user123&apos;;
+    obj.say=function(){
+        alert(&apos;my name is :&apos;+this.username);
+        return obj;
+    }
+    obj.eat=function(){
+        alert(&apos;I am eating&apos;);
+    }
+    return obj;
+}
+
+$().say().eat();    //链式开发结构
+
+&lt;/script&gt;
+</code></pre><p>jquery和js对象的方法能不能共用？<br>答：不能，jquery对象和js对象原本就是两个不同的对象，方法自然不能共用<br>jquery对象和js对象能不能互换？<br>答：能，<br>dom对象-&gt;jquery对象:$(dom)</p>
+<pre><code>&lt;body&gt;
+&lt;img src=&quot;a.jpg&quot; id=&quot;imgobj&quot;&gt;
+&lt;/body&gt;
+&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+imgobj = document.getElementById(&apos;imgobj&apos;);
+/*imgobj.onclick=function(){
+    this.src=&apos;b.jpg&apos;;
+}*/
+
+
+$(imgobj).click(function(){
+    //this.src=&apos;b.jpg&apos;;        //this代表dom对象
+    $(this).attr({&apos;src&apos;:&apos;b.jpg&apos;});        //setAtrrbute()
+});
+
+&lt;/script&gt;
+</code></pre><p>jquery对象-&gt;dom对象:$(‘h1’)[0]<br>                    $(‘h1’).get(1)</p>
+<pre><code>&lt;body&gt;
+&lt;h1&gt;aaaaaaaaaaaaaaaaaaaa&lt;/h1&gt;
+&lt;h1&gt;bbbbbbbbbbbbbbbbbbbb&lt;/h1&gt;
+&lt;/body&gt;
+&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+val = $(&apos;h1&apos;)[0].outerHTML;    //jquery没有outerHTML,[1]则是第二个h1标签
+alert(val);
+
+/*arr = $(&apos;h1&apos;).get();    //返回对象数组
+alert(arr[1].outerHTML);*/
+&lt;/script&gt;
+</code></pre><h2 id="jquery核心方法"><a href="#jquery核心方法" class="headerlink" title="jquery核心方法"></a>jquery核心方法</h2><p>each();<br>size();<br>length;<br>get();<br>get(index);<br>index();<br>data();</p>
+<p>size()和length都是显示jquery对象中dom对象的个数，注意length这里是一个属性，并不是方法</p>
+<pre><code>&lt;body&gt;
+&lt;h1&gt;aaaaaaaaaaaa&lt;/h1&gt;
+&lt;h1&gt;bbbbbbbbbbbb&lt;/h1&gt;
+&lt;/body&gt;
+&lt;script&gt;
+    alert($(&apos;h1&apos;).length);    //弹出2
+    alert($(&apos;h1&apos;).size());    //弹出2，注意jQuery1.8.*以后不用
+&lt;/script&gt;
+</code></pre><p>get()函数返回的是jquery对象中的dom对象数组，get(index)函数获得jquery对象中的dom对象数组的第index+1个元素</p>
+<pre><code>    &lt;body&gt;
+&lt;h1&gt;aaaaaaaaaaaaaaaaaaaa&lt;/h1&gt;
+&lt;h1&gt;bbbbbbbbbbbbbbbbbbbb&lt;/h1&gt;
+&lt;/body&gt;
+&lt;script src=&quot;jquery-3.3.1.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+arr = $(&apos;h1&apos;).get();    //jquery没有outerHTML
+alert(arr[1].outerHTML);//弹出框&lt;h1&gt;bbbbbbbbbbbbbbbbbbbb&lt;/h1&gt;
+
+val = $(&apos;h1&apos;).get(1).outerHTML;    //[1]其实是第二个h1标签
+alert(val);                        //弹出框&lt;h1&gt;bbbbbbbbbbbbbbbbbbbb&lt;/h1&gt;
+&lt;/script&gt;
+</code></pre><p>each()函数是实现jquery对象遍历的一个方法。如下边的例子（单击元素显示行号）：</p>
+<pre><code>&lt;body&gt;
+&lt;h1&gt;aaaaaaaaaaaa&lt;/h1&gt;
+&lt;h1&gt;aaaaaaaaaaaa&lt;/h1&gt;
+&lt;h1&gt;aaaaaaaaaaaa&lt;/h1&gt;
+&lt;h1&gt;aaaaaaaaaaaa&lt;/h1&gt;
+&lt;h1&gt;aaaaaaaaaaaa&lt;/h1&gt;
+&lt;/body&gt;
+&lt;script&gt;
+$(&apos;h1&apos;).each(function(i) {
+    $(&apos;h1&apos;).get()[i].setAttribute(&apos;num&apos;,i+1);
+});
+$(&apos;h1&apos;).click(function(){
+    this.innerHTML = this.getAttribute(&apos;num&apos;);
+});
+&lt;/script&gt;
+//一般的情况更多的使用下边的形式,统一使用jquery对象或者dom对象，不会来回的转化
+&lt;script&gt;
+$(&apos;h1&apos;).each(function(i) {
+    $(this).attr({num:i+1});
+});
+$(&apos;h1&apos;).click(function(){
+    $(this).html($(this).attr(&apos;num&apos;));    //html()函数类似innerHTML()函数，在这里赋值了
+});
+&lt;/script&gt;
+</code></pre><p>index()函数搜索匹配的元素，并返回相应元素的索引值</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/12/jQuery学习笔记/" data-id="cjhhwcjgc00039s9gwin5txfx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/18/JavaScript读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习计划/">学习计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/学习计划/" style="font-size: 10px;">学习计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/12/jQuery学习笔记/">jQuery学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/18/JavaScript读书笔记/">JavaScript学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/">ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/15/为Hexo主题maupassant添加LiveRe评论系统/">为Hexo主题maupassant添加LiveRe评论系统</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/20/成功的梯子/">成功的梯子</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
