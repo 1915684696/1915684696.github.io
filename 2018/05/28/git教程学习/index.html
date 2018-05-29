@@ -5,23 +5,22 @@
   
 
   
-  <title>ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务 | Ning</title>
+  <title>git教程学习 | Ning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在写Oracle作业是遇到了这个问题：老师让查数据库SGA各部分组成的大小，在超级管理员用户下输入shutdown immediate;然后在输入startup;回车然后就出错了，自己查询原因后已成功解决。">
-<meta name="keywords" content="Oracle">
+  <meta name="description" content="git的安装请自行百度，这里只进行git的基本操作介绍：">
+<meta name="keywords" content="读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务">
-<meta property="og:url" content="http://yoursite.com/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/index.html">
+<meta property="og:title" content="git教程学习">
+<meta property="og:url" content="http://yoursite.com/2018/05/28/git教程学习/index.html">
 <meta property="og:site_name" content="Ning">
-<meta property="og:description" content="最近在写Oracle作业是遇到了这个问题：老师让查数据库SGA各部分组成的大小，在超级管理员用户下输入shutdown immediate;然后在输入startup;回车然后就出错了，自己查询原因后已成功解决。">
+<meta property="og:description" content="git的安装请自行百度，这里只进行git的基本操作介绍：">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.imgur.com/efBwQGr.png">
-<meta property="og:image" content="https://i.imgur.com/StvEyoK.jpg">
-<meta property="og:updated_time" content="2018-04-23T14:33:56.256Z">
+<meta property="og:image" content="https://i.imgur.com/KGS6BrG.png">
+<meta property="og:updated_time" content="2018-05-28T13:58:06.214Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务">
-<meta name="twitter:description" content="最近在写Oracle作业是遇到了这个问题：老师让查数据库SGA各部分组成的大小，在超级管理员用户下输入shutdown immediate;然后在输入startup;回车然后就出错了，自己查询原因后已成功解决。">
-<meta name="twitter:image" content="https://i.imgur.com/efBwQGr.png">
+<meta name="twitter:title" content="git教程学习">
+<meta name="twitter:description" content="git的安装请自行百度，这里只进行git的基本操作介绍：">
+<meta name="twitter:image" content="https://i.imgur.com/KGS6BrG.png">
   
     <link rel="alternate" href="/atom.xml" title="Ning" type="application/atom+xml">
   
@@ -68,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-git教程学习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/" class="article-date">
-  <time datetime="2018-04-15T10:32:53.000Z" itemprop="datePublished">2018-04-15</time>
+    <a href="/2018/05/28/git教程学习/" class="article-date">
+  <time datetime="2018-05-28T12:22:57.000Z" itemprop="datePublished">2018-05-28</time>
 </a>
     
   </div>
@@ -82,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务
+      git教程学习
     </h1>
   
 
@@ -90,21 +89,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在写Oracle作业是遇到了这个问题：老师让查数据库SGA各部分组成的大小，在超级管理员用户下输入<code>shutdown immediate;</code>然后在输入<code>startup;</code>回车然后就出错了，自己查询原因后已成功解决。<a id="more"></a><br><br><img src="https://i.imgur.com/efBwQGr.png" alt=""><br>我是将Oracle装在了虚拟机里，安装成功后并没有进行监听程序的配置，重新打开后就会遇到这个问题。这个错误的原因就是客户端未监听到实例服务名，监听配置文件Listener.ora是可以不指定监听的服务名的，Oracle10g也没有。<br><br>既然这个错误出现了，首先咱们可以考虑重启监听程序试试，若还是不行的话就考虑改Listener.ora文件，在Listener.ora中增加指定监听的实例名，这样就解决了。方法如下：<br><br>在Listener.ora中增加以下代码</p>
-<pre><code>(SID_DESC =
-    (GLOBAL_DBNAME = ORCL)
-    (ORACLE_HOME = D:\app\Administrator\product\11.2.0\dbhome_1)
-    (SID_NAME = ORCL)
-)
-</code></pre><p>如下图：<br><img src="https://i.imgur.com/StvEyoK.jpg" alt=""><br>然后重启监听服务就解决了</p>
-
+        <p>git的安装请自行百度，这里只进行git的基本操作介绍：<br><a id="more"></a></p>
+<h2 id="git首次安装的配置"><a href="#git首次安装的配置" class="headerlink" title="git首次安装的配置"></a>git首次安装的配置</h2><p>首次使用git,需要进行如下配置：打开cmd命令行，输入：<br>git config –global user.name “用户名”<br>git config –global user.email “邮箱”</p>
+<p>注意：这里的用户名和邮箱要用英文的<br>让它知道主人是谁，以后每次的提交都会用到这些信息</p>
+<p>输入完成之后，在命令行中输入<code>git config --list</code>可以可以查看配置后的信息，若显示了name和email就说明配置成功了</p>
+<h2 id="git理论基础"><a href="#git理论基础" class="headerlink" title="git理论基础"></a>git理论基础</h2><p>git记录的是什么？<br>git记录的是每次版本的变动，原理则是将每个版本独立保存，它每个版本都是独立的存储，它看似消耗了很多空间，但是在分支管理上却带来了很多的益处和便利。<br>git实现版本控制的方法？<br><img src="https://i.imgur.com/KGS6BrG.png" alt=""><br>在git中有这样的三棵树：工作区、暂存区、仓库。<br>工作区就是我们通常使用的目录。<br>暂存区存放用户临时的改动，它本身是一个文件，保存的是即将提交到仓库的一个列表信息。<br>仓库是最终存放所有版本的位置，它有一个head指针，指向最新提交的内容。</p>
+<h3 id="git的工作流程"><a href="#git的工作流程" class="headerlink" title="git的工作流程"></a>git的工作流程</h3><p>git的工作流程一般是酱紫的：</p>
+<ol>
+<li>在工作目录中添加、修改文件</li>
+<li>将需要进行版本管理的文件放入暂存区域</li>
+<li>将暂存区域的文件提交到git仓库</li>
+</ol>
+<p>git管理的文件有三种状态：<br>——已修改（modified）<br>——已暂存（staged）<br>——已提交（committed）</p>
+<h2 id="git实战"><a href="#git实战" class="headerlink" title="git实战"></a>git实战</h2><p>创建一个新的文件夹，打开cmd进入文件夹，</p>
+<pre><code>git init    //初始化仓库
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/" data-id="cjhrhz6u10000mc9gqeqymtk7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/28/git教程学习/" data-id="cjhrhz6uh0001mc9go9vlkmmf" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
 
     </footer>
   </div>
@@ -112,19 +118,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/04/18/JavaScript读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          JavaScript学习笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/15/为Hexo主题maupassant添加LiveRe评论系统/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/05/12/jQuery学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">为Hexo主题maupassant添加LiveRe评论系统</div>
+      <div class="article-nav-title">jQuery学习笔记</div>
     </a>
   
 </nav>

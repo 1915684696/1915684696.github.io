@@ -15,12 +15,13 @@
 <meta property="og:site_name" content="Ning">
 <meta property="og:description" content="笔记参考《JavaScript实战》（西南财经大学出版社）">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/Zf3Sydr.jpg">
 <meta property="og:image" content="https://i.imgur.com/trQZx7F.gif">
-<meta property="og:updated_time" content="2018-05-08T15:26:13.983Z">
+<meta property="og:updated_time" content="2018-05-29T09:44:04.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript学习笔记">
 <meta name="twitter:description" content="笔记参考《JavaScript实战》（西南财经大学出版社）">
-<meta name="twitter:image" content="https://i.imgur.com/trQZx7F.gif">
+<meta name="twitter:image" content="https://i.imgur.com/Zf3Sydr.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Ning" type="application/atom+xml">
   
@@ -551,7 +552,246 @@ alert(pattern.test(str));
 
 var pattern = /^([\w\.\-]+)@([\w\.\-]+)\.([\w]{2,4})$/;
 var str = &apos;yc60.com@gmail.com&apos;
-</code></pre><p>DOM，英文是Document Object Model,即文档对象模型。它描绘了一个层次化的节点树<img src="https://i.imgur.com/trQZx7F.gif" alt=""></p>
+</code></pre><h2 id="八、BOM"><a href="#八、BOM" class="headerlink" title="八、BOM"></a>八、BOM</h2><p>BOM也叫浏览器对象模型，它提供了很多对象，用于访问浏览器的功能。BOM缺少规范，每个浏览器提供商 又按照自己想法去扩展它，那么浏览器共有对象就成了事实的标准。所以，BOM本身是没有标准的或者还没有哪个组织去将它标准化。</p>
+<h3 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h3><p>BOM的核心是window，它表示浏览器的一个实例，window对象处于JavaScript结构的最顶层，对于每个打开的窗口，系统都会自动为其定义一个window对象。<br><img src="https://i.imgur.com/Zf3Sydr.jpg" alt=""></p>
+<h4 id="window的对象属性"><a href="#window的对象属性" class="headerlink" title="window的对象属性"></a>window的对象属性</h4><p>window对象有一系列的属性，这些属性本身也是对象。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">closed</td>
+<td style="text-align:center">当窗口关闭时为真</td>
+</tr>
+<tr>
+<td style="text-align:center">defaultStatus</td>
+<td style="text-align:center">窗口底部状态栏显示的默认状态消息</td>
+</tr>
+<tr>
+<td style="text-align:center">document</td>
+<td style="text-align:center">窗口中当前显示的文档对象</td>
+</tr>
+<tr>
+<td style="text-align:center">frames</td>
+<td style="text-align:center">窗口中的框架对象数组</td>
+</tr>
+<tr>
+<td style="text-align:center">history</td>
+<td style="text-align:center">保存有窗口最近加载的URL</td>
+</tr>
+<tr>
+<td style="text-align:center">length</td>
+<td style="text-align:center">窗口中的框架数</td>
+</tr>
+<tr>
+<td style="text-align:center">location</td>
+<td style="text-align:center">当前窗口的URL</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">窗口名</td>
+</tr>
+<tr>
+<td style="text-align:center">offscreenBuffering</td>
+<td style="text-align:center">用于绘制新窗口内容并在完成后复制已存在的内容，控制屏幕更新</td>
+</tr>
+<tr>
+<td style="text-align:center">opener</td>
+<td style="text-align:center">打开当前窗口的窗口</td>
+</tr>
+<tr>
+<td style="text-align:center">parent</td>
+<td style="text-align:center">指向包含窗口的窗口（由框架使用）</td>
+</tr>
+<tr>
+<td style="text-align:center">screen</td>
+<td style="text-align:center">显示屏幕相关信息，如高度、宽度（以像素为单位）</td>
+</tr>
+<tr>
+<td style="text-align:center">self</td>
+<td style="text-align:center">指示当前窗口</td>
+</tr>
+<tr>
+<td style="text-align:center">status</td>
+<td style="text-align:center">描述由用户交互导致的状态栏的临时消息</td>
+</tr>
+<tr>
+<td style="text-align:center">top</td>
+<td style="text-align:center">包含特定窗口的最顶层窗口（由框架使用）</td>
+</tr>
+<tr>
+<td style="text-align:center">window</td>
+<td style="text-align:center">指示当前窗口，与self等效</td>
+</tr>
+</tbody>
+</table>
+<h4 id="window对象的方法"><a href="#window对象的方法" class="headerlink" title="window对象的方法"></a>window对象的方法</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">alert(text)</td>
+<td style="text-align:center">创建一个警告对话框，显示一条消息</td>
+</tr>
+<tr>
+<td style="text-align:center">blur()</td>
+<td style="text-align:center">将焦点从窗口移除</td>
+</tr>
+<tr>
+<td style="text-align:center">focus()</td>
+<td style="text-align:center">将焦点移至窗口</td>
+</tr>
+<tr>
+<td style="text-align:center">clearInterval(interval)</td>
+<td style="text-align:center">清除之前设置的定时器间隔</td>
+</tr>
+<tr>
+<td style="text-align:center">clearTimeOut(timer)</td>
+<td style="text-align:center">清除之前设置的超时</td>
+</tr>
+<tr>
+<td style="text-align:center">close()</td>
+<td style="text-align:center">关闭窗口</td>
+</tr>
+<tr>
+<td style="text-align:center">confirm()</td>
+<td style="text-align:center">创建一个需要用户确认的对话框</td>
+</tr>
+<tr>
+<td style="text-align:center">open(url,name,[options])</td>
+<td style="text-align:center">打开一个新的窗口并返回新window对象</td>
+</tr>
+<tr>
+<td style="text-align:center">prompt(text，defaultInput)</td>
+<td style="text-align:center">创建一个对话框要求用户输入信息</td>
+</tr>
+<tr>
+<td style="text-align:center">scroll(x,y)</td>
+<td style="text-align:center">在窗口中滚动一个像素点的位置</td>
+</tr>
+<tr>
+<td style="text-align:center">setInterval(function,millisenconds)</td>
+<td style="text-align:center">经过指定时间间隔计算一个表达式</td>
+</tr>
+<tr>
+<td style="text-align:center">setInterval(function,millisenconds,[arguments])</td>
+<td style="text-align:center">经过指定时间间隔后调用一个函数</td>
+</tr>
+<tr>
+<td style="text-align:center">setTimeout(expression,milliseconds)</td>
+<td style="text-align:center">在定时器超过后计算一个表达式</td>
+</tr>
+<tr>
+<td style="text-align:center">setTimeout(function,milliseconds,[arguments])</td>
+<td style="text-align:center">在定时器超过后计算一个函数</td>
+</tr>
+<tr>
+<td style="text-align:center">print()</td>
+<td style="text-align:center">调出打印对话框</td>
+</tr>
+<tr>
+<td style="text-align:center">find()</td>
+<td style="text-align:center">调出查找对话框</td>
+</tr>
+</tbody>
+</table>
+<h4 id="系统对话框"><a href="#系统对话框" class="headerlink" title="系统对话框"></a>系统对话框</h4><pre><code>alert（&apos;helloworld&apos;);    //直接弹出警告
+
+if(confirm(&apos;请确定或取消&apos;)){    //需要确定或取消
+    alert(&apos;您按了确认&apos;);
+}
+else{
+    alert(&apos;您按了取消&apos;);
+}
+
+var num = prompt(&apos;请输入一个数字&apos;,0);    //这里的0是默认值
+alert(num);
+</code></pre><h4 id="新建窗口"><a href="#新建窗口" class="headerlink" title="新建窗口"></a>新建窗口</h4><p>使用window.open()方法可以导航到一个特定的URL,也可以打开一个新的浏览器窗口。它可以接受四个参数：</p>
+<ol>
+<li>要加载的URL；</li>
+<li>窗口的名称或窗口目标；</li>
+<li>一个特性字符串；</li>
+<li><p>一个表示新页面是否取代浏览器记录中当前加载页面的布尔值。          </p>
+<p> open(‘<a href="http://www.baidu.com&#39;)" target="_blank" rel="noopener">http://www.baidu.com&#39;)</a>;<br> open(‘<a href="http://www.baidu.com&#39;,&#39;baidu&#39;)" target="_blank" rel="noopener">http://www.baidu.com&#39;,&#39;baidu&#39;)</a>;<br> open(‘<a href="http://www.baidu.com&#39;,&#39;baidu&#39;,&#39;width=400,height=400,top=200,left=200,toolbar=yes&#39;)" target="_blank" rel="noopener">http://www.baidu.com&#39;,&#39;baidu&#39;,&#39;width=400,height=400,top=200,left=200,toolbar=yes&#39;)</a>;</p>
+<h4 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h4><p>location是BOM对象之一，它提供了与当前窗口中加载的文档有关的信息，还提供了一些导航功能。事实上，location对象是window对象的属性，也是document对象的属性；所以window.location和document.location等效。</p>
+<p> alert(location);    //获取当前的URL<br>location对象的属性</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">描述的URL的内</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">hash</td>
+<td style="text-align:center">如过该部分存在，表示锚点部分</td>
+</tr>
+<tr>
+<td style="text-align:center">host</td>
+<td style="text-align:center">主机名：端口号</td>
+</tr>
+<tr>
+<td style="text-align:center">hostname</td>
+<td style="text-align:center">主机名</td>
+</tr>
+<tr>
+<td style="text-align:center">href</td>
+<td style="text-align:center">整个URL</td>
+</tr>
+<tr>
+<td style="text-align:center">pathname</td>
+<td style="text-align:center">路径名</td>
+</tr>
+<tr>
+<td style="text-align:center">port</td>
+<td style="text-align:center">端口号</td>
+</tr>
+<tr>
+<td style="text-align:center">protocol</td>
+<td style="text-align:center">协议部分</td>
+</tr>
+<tr>
+<td style="text-align:center">search</td>
+<td style="text-align:center">查询字符串</td>
+</tr>
+</tbody>
+</table>
+<p>location对象的方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">assign()</td>
+<td style="text-align:center">跳转到指定页面，与href等效</td>
+</tr>
+<tr>
+<td style="text-align:center">reload()</td>
+<td style="text-align:center">重载当前URL</td>
+</tr>
+<tr>
+<td style="text-align:center">replace()</td>
+<td style="text-align:center">用新的URL替换当前页面</td>
+</tr>
+</tbody>
+</table>
+<p>JavaScript允许通过设置超时值和间歇时间值来调度代码在特定的时刻执行。</p>
+<h2 id="九、DOM基础"><a href="#九、DOM基础" class="headerlink" title="九、DOM基础"></a>九、DOM基础</h2><p>DOM，英文是Document Object Model,即文档对象模型。它描绘了一个层次化的节点树<img src="https://i.imgur.com/trQZx7F.gif" alt=""></p>
 <h3 id="DOM简单操作"><a href="#DOM简单操作" class="headerlink" title="DOM简单操作"></a>DOM简单操作</h3><p>我们可以通过简单的操作定位节点的方法和属性</p>
 <table>
 <thead>
@@ -710,7 +950,7 @@ var str = &apos;yc60.com@gmail.com&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/18/JavaScript读书笔记/" data-id="cjhhwcjfw00009s9gxctd6c41" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/18/JavaScript读书笔记/" data-id="cjhrhz6uh0003mc9g7hs29kqy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
@@ -784,6 +1024,10 @@ var str = &apos;yc60.com@gmail.com&apos;
       <ul>
         
           <li>
+            <a href="/2018/05/28/git教程学习/">git教程学习</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/12/jQuery学习笔记/">jQuery学习笔记</a>
           </li>
         
@@ -797,10 +1041,6 @@ var str = &apos;yc60.com@gmail.com&apos;
         
           <li>
             <a href="/2018/04/15/为Hexo主题maupassant添加LiveRe评论系统/">为Hexo主题maupassant添加LiveRe评论系统</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/20/成功的梯子/">成功的梯子</a>
           </li>
         
       </ul>
