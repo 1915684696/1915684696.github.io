@@ -16,7 +16,15 @@
 <meta property="og:description" content="git的安装请自行百度，这里只进行git的基本操作介绍：">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/KGS6BrG.png">
-<meta property="og:updated_time" content="2018-05-28T13:58:06.214Z">
+<meta property="og:image" content="https://i.imgur.com/sPHGWv3.png">
+<meta property="og:image" content="https://i.imgur.com/L6JFLyK.png">
+<meta property="og:image" content="https://i.imgur.com/Vw6QGNa.png">
+<meta property="og:image" content="https://i.imgur.com/gV6DXRf.png">
+<meta property="og:image" content="https://i.imgur.com/k19bWGa.png">
+<meta property="og:image" content="https://i.imgur.com/iaUZSPg.png">
+<meta property="og:image" content="https://i.imgur.com/rgt93wC.png">
+<meta property="og:image" content="https://i.imgur.com/JOk5SB0.png">
+<meta property="og:updated_time" content="2018-06-04T15:35:15.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git教程学习">
 <meta name="twitter:description" content="git的安装请自行百度，这里只进行git的基本操作介绍：">
@@ -101,13 +109,88 @@
 <li>将暂存区域的文件提交到git仓库</li>
 </ol>
 <p>git管理的文件有三种状态：<br>——已修改（modified）<br>——已暂存（staged）<br>——已提交（committed）</p>
-<h2 id="git实战"><a href="#git实战" class="headerlink" title="git实战"></a>git实战</h2><p>创建一个新的文件夹，打开cmd进入文件夹，</p>
-<pre><code>git init    //初始化仓库
+<h2 id="git实战"><a href="#git实战" class="headerlink" title="git实战"></a>git实战</h2><p>git实现一个版本控制的基本操作如下</p>
+<pre><code>1. 创建一个新的文件夹，打开cmd进入文件夹，
+2. git init    //初始化仓库
+3. 在工作目录中创建文件README.md
+4. git add README.md    //添加文件到暂存区
+5. git commit -m &quot;你干了啥&quot;    //添加到仓库
+</code></pre><h2 id="git查看工作状态和历史提交"><a href="#git查看工作状态和历史提交" class="headerlink" title="git查看工作状态和历史提交"></a>git查看工作状态和历史提交</h2><pre><code>git status    //该命令可查看当前的git的状态，在哪个分支，提交的信息等
+git reset HEAD [filename]    //将暂存区的文件恢复回去，filename不写代表恢复最后一次的add
+git checkout -- filename        //将修改过的文件退回到之前add过的那个版本  
+git    log    //查看历史提交（只显示当前分支），按照时间顺序从进到远
+</code></pre><h2 id="回到过去"><a href="#回到过去" class="headerlink" title="回到过去"></a>回到过去</h2><p>git是一个设计精良的时间机器，可以在不同的版本之间来回穿梭<br><img src="https://i.imgur.com/sPHGWv3.png" alt=""></p>
+<pre><code>git    reset HEAD~    //~表示退回到上一个版本,~~表示上上一个快照
+git reset HEAD~num    //表示退回到head之前的第num个版本
+</code></pre><p>reset命令的选项</p>
+<pre><code>git reset --mixed HEAD~        //默认的mixed，可以不写
+    --移动HEAD的指向，将其指向上一个快照
+    --将HEAD移动后的指向的快照回滚到暂存区域
+git    reset --soft     HEAD~
+    --移动HEAD的指向，将其指向上一个快照
+git reset --hard     HEAD~
+    --移动HEAD的指向，将其指向上一个快照
+    --将HEAD移动后的指向的快照回滚到暂存区域
+    --将暂存区域的文件还原到工作目录
+</code></pre><h4 id="git-回滚指定快照"><a href="#git-回滚指定快照" class="headerlink" title="git 回滚指定快照"></a>git 回滚指定快照</h4><p>git可以回滚到指定的快照，不需要head加上~，可以直接回到指定的版本</p>
+<pre><code>git reset &quot;版本号（前几个字母即可）&quot;
+</code></pre><h4 id="git回滚个别文件"><a href="#git回滚个别文件" class="headerlink" title="git回滚个别文件"></a>git回滚个别文件</h4><p>git可以回滚快照中的个别文件，在这里HEAD指针不会改变，具体命令如下：</p>
+<pre><code>git reset 版本快照 文件名/路径
+</code></pre><h4 id="git往前滚"><a href="#git往前滚" class="headerlink" title="git往前滚"></a>git往前滚</h4><p>git不仅可以往回滚，还可以往前滚，就是回到未来：</p>
+<pre><code>git reset 版本快照的ID号
+</code></pre><h2 id="git版本对比"><a href="#git版本对比" class="headerlink" title="git版本对比"></a>git版本对比</h2><p>git status只能显示版本的是否改动，但不能具体改动了那些地方，改动了多少行，这里的命令可以查看git的具体改动</p>
+<pre><code>git diff    //比较暂存区域与工作目录
+</code></pre><p><img src="https://i.imgur.com/L6JFLyK.png" alt=""></p>
+<ul>
+<li>这里的<code>a/README.md</code>和<code>b/README.md</code>分别代表存放在暂存区的README和存放在工作目录的README，可以当做是git将它们放在了a文件和b文件夹下面进行比较</li>
+<li><code>index 1ca24e6...</code>是文件的ID，<code>10064</code>是文件的类型和权限，和linux相同</li>
+<li>— a/README.md是存放在暂存区中的文件，是旧文件</li>
+<li>+++ b/README.md是存放在工作目录中的文件，是新的文件</li>
+<li>两个@@之间的数字：<code>-</code>代表旧文件，<code>+</code>代表新文件，符号后边的代表开始的行号，数字代表连续的行数</li>
+<li>当文档太大显示不完时，会出现类似vi/vim的界面，操作跟vi/vim相同</li>
+</ul>
+<h4 id="比较两个历史快照"><a href="#比较两个历史快照" class="headerlink" title="比较两个历史快照"></a>比较两个历史快照</h4><pre><code>get diff 快照ID1 快照ID2
+</code></pre><h4 id="比较当前工作目录和Git仓库中的快照"><a href="#比较当前工作目录和Git仓库中的快照" class="headerlink" title="比较当前工作目录和Git仓库中的快照"></a>比较当前工作目录和Git仓库中的快照</h4><pre><code>git diff 快照ID
+</code></pre><h4 id="比较当前工作目录和最新提交的内容的快照"><a href="#比较当前工作目录和最新提交的内容的快照" class="headerlink" title="比较当前工作目录和最新提交的内容的快照"></a>比较当前工作目录和最新提交的内容的快照</h4><pre><code>git diff HEAD
+</code></pre><h4 id="比较暂存区和git仓库的快照"><a href="#比较暂存区和git仓库的快照" class="headerlink" title="比较暂存区和git仓库的快照"></a>比较暂存区和git仓库的快照</h4><pre><code>git diff --cached [快照ID]    //ID没有则指定跟最新的版本进行对比
+</code></pre><h4 id="附上大图一张"><a href="#附上大图一张" class="headerlink" title="附上大图一张"></a>附上大图一张</h4><p><img src="https://i.imgur.com/Vw6QGNa.png" alt=""></p>
+<h2 id="git修改最后一次提交、删除文件和重命名文件"><a href="#git修改最后一次提交、删除文件和重命名文件" class="headerlink" title="git修改最后一次提交、删除文件和重命名文件"></a>git修改最后一次提交、删除文件和重命名文件</h2><p>在实际开发中，可能遇到以下两种情景：</p>
+<ul>
+<li>情景一：版本刚一提交（commit）到仓库，突然想起漏掉两个文件还没有添加（add）。</li>
+<li>情景二：版本刚一提交（commit）到仓库，突然想起版本说明写得不够全面，无法彰显你本次修改的重大意义。。。。<br>这时我们可能比较头疼，但是在git中只要是在本地发生的情况，git基本都可以将它恢复的。。<br>执行带 –amend选项的commit提交命令，Git就会“更正”最近的一次提交</li>
+</ul>
+<pre><code>git commit --amend    //界面操作跟vi/vim相同
+</code></pre><p><img src="https://i.imgur.com/gV6DXRf.png" alt=""></p>
+<h4 id="不小心删除文件"><a href="#不小心删除文件" class="headerlink" title="不小心删除文件"></a>不小心删除文件</h4><p>使用checkout命令将暂存区的快照恢复到工作目录</p>
+<pre><code>git checkout -- 文件名    //注意：--符号的两边各有一个空格
+</code></pre><h4 id="如何彻底删除文件呢？"><a href="#如何彻底删除文件呢？" class="headerlink" title="如何彻底删除文件呢？"></a>如何彻底删除文件呢？</h4><p>彻底删除文件可以使用rm命令：该命令删除的只是工作目录和暂存区域的文件，也就是取消跟踪，在下次提交时不纳入版本管理</p>
+<pre><code>git rm 文件名    //可以删除当前目录和暂存区的最新快照中的文件，仓库中还会保留
+git reset --soft HEAD~    //配合rm命令回到过去，soft只修改仓库指针
+</code></pre><p>若工作目录和暂存区的文件不同（即工作目录已修改），使用rm命令会出现提示信息（因为git不知道你要删除哪一个），但是也可以使用<code>-f</code>命令将两个都强行删除，如下：</p>
+<pre><code>git rm -f 文件名字
+</code></pre><p>若只想删除暂存区的文件，但是又不想删除工作目录的文件，可以执行以下操作实现：</p>
+<pre><code>git rm --cached 文件名
+</code></pre><h3 id="修改文件名"><a href="#修改文件名" class="headerlink" title="修改文件名"></a>修改文件名</h3><p>修改文件名之后，查看<code>git status</code>,git会以为你将原文件删除，又通知增加了一个新的文件，该文件名就会显得很麻烦，它也不是那么智能的。那若想修改文件名，可以在git上直接修改，跟linux相同：</p>
+<pre><code>git mv 旧文件名 新文件名        //查看status会显示rename状态
+</code></pre><h2 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h2><p>分支的概念，来张大图：<br><img src="https://i.imgur.com/k19bWGa.png" alt=""> </p>
+<h4 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h4><pre><code>git branch 分支名    //创建分支
+
+git log --decorate    //decorate是让log命令显示了指向当前HEAD所在的分支
+</code></pre><h4 id="切换和切换分支"><a href="#切换和切换分支" class="headerlink" title="切换和切换分支"></a>切换和切换分支</h4><pre><code>git checkout 分支名    //切换到指定分支
+
+git log --decorate --oneline --graph     --all    //oneline，精简化的形式显示；graph，图形化的形式显示;all,显示所有分支；
+//这些选项的先后顺序不影响
+</code></pre><p>分别在不同的分支下进行了操作并提交：如下图：<br><img src="https://i.imgur.com/iaUZSPg.png" alt=""></p>
+<h2 id="git合并和删除分支"><a href="#git合并和删除分支" class="headerlink" title="git合并和删除分支"></a>git合并和删除分支</h2><p>git分支合并的命令：</p>
+<pre><code>git merge 分支名        //将指定分支合并到当前的分支中
+</code></pre><p>若两个分支中的文件有不同的地方，那么git也就不知道你要保留那些，舍弃那些，此时打开该文件，发现git会帮你做一下修改：<br><img src="https://i.imgur.com/rgt93wC.png" alt=""><br>此时以<code>======</code>为界限，上边是branch分支的，下边是feature分支。在对文件进行修改之后，执行add，commit命令之后，git就会将两个分支自动合并了：<br><img src="https://i.imgur.com/JOk5SB0.png" alt=""></p>
+<pre><code>git checkout -b feature2        //-b就是直接创建一个新的分支并且转换到新的分支里去
+</code></pre><h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><pre><code>git branch -d 分支名        //-d就是删除分支的操作
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/28/git教程学习/" data-id="cjhrhz6uh0001mc9go9vlkmmf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/28/git教程学习/" data-id="cji0fefez0003ow9g2ovy8pw3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
