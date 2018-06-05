@@ -7,13 +7,13 @@
   
   <title>git教程学习 | Ning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="git的安装请自行百度，这里只进行git的基本操作介绍：">
+  <meta name="description" content="git的安装请自行百度，这里只进行git的基本操作介绍：  git首次安装的配置 git理论基础（三课树） git的工作流程和实战 git查看工作状态和历史提交 回到过去 git版本对比 git修改最后一次提交、删除文件和重命名文件 git分支（创建和切换） git分支合并和删除分支 git匿名分支和checkout命令详解">
 <meta name="keywords" content="读书笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git教程学习">
 <meta property="og:url" content="http://yoursite.com/2018/05/28/git教程学习/index.html">
 <meta property="og:site_name" content="Ning">
-<meta property="og:description" content="git的安装请自行百度，这里只进行git的基本操作介绍：">
+<meta property="og:description" content="git的安装请自行百度，这里只进行git的基本操作介绍：  git首次安装的配置 git理论基础（三课树） git的工作流程和实战 git查看工作状态和历史提交 回到过去 git版本对比 git修改最后一次提交、删除文件和重命名文件 git分支（创建和切换） git分支合并和删除分支 git匿名分支和checkout命令详解">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/KGS6BrG.png">
 <meta property="og:image" content="https://i.imgur.com/sPHGWv3.png">
@@ -26,10 +26,10 @@
 <meta property="og:image" content="https://i.imgur.com/JOk5SB0.png">
 <meta property="og:image" content="https://i.imgur.com/qgxhwAO.png">
 <meta property="og:image" content="https://i.imgur.com/YtQHRWr.png">
-<meta property="og:updated_time" content="2018-06-05T09:47:20.976Z">
+<meta property="og:updated_time" content="2018-06-05T14:33:21.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git教程学习">
-<meta name="twitter:description" content="git的安装请自行百度，这里只进行git的基本操作介绍：">
+<meta name="twitter:description" content="git的安装请自行百度，这里只进行git的基本操作介绍：  git首次安装的配置 git理论基础（三课树） git的工作流程和实战 git查看工作状态和历史提交 回到过去 git版本对比 git修改最后一次提交、删除文件和重命名文件 git分支（创建和切换） git分支合并和删除分支 git匿名分支和checkout命令详解">
 <meta name="twitter:image" content="https://i.imgur.com/KGS6BrG.png">
   
     <link rel="alternate" href="/atom.xml" title="Ning" type="application/atom+xml">
@@ -99,19 +99,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>git的安装请自行百度，这里只进行git的基本操作介绍：<br><a id="more"></a></p>
-<h2 id="git首次安装的配置"><a href="#git首次安装的配置" class="headerlink" title="git首次安装的配置"></a>git首次安装的配置</h2><p>首次使用git,需要进行如下配置：打开cmd命令行，输入：<br>git config –global user.name “用户名”<br>git config –global user.email “邮箱”</p>
+        <p>git的安装请自行百度，这里只进行git的基本操作介绍：</p>
+<ul>
+<li>git首次安装的配置</li>
+<li>git理论基础（三课树）</li>
+<li>git的工作流程和实战</li>
+<li>git查看工作状态和历史提交</li>
+<li>回到过去</li>
+<li>git版本对比</li>
+<li>git修改最后一次提交、删除文件和重命名文件</li>
+<li>git分支（创建和切换）</li>
+<li>git分支合并和删除分支</li>
+<li>git匿名分支和checkout命令详解<a id="more"></a>
+<h2 id="git首次安装的配置"><a href="#git首次安装的配置" class="headerlink" title="git首次安装的配置"></a>git首次安装的配置</h2>首次使用git,需要进行如下配置：打开cmd命令行，输入：<br>git config –global user.name “用户名”<br>git config –global user.email “邮箱”</li>
+</ul>
 <p>注意：这里的用户名和邮箱要用英文的<br>让它知道主人是谁，以后每次的提交都会用到这些信息</p>
 <p>输入完成之后，在命令行中输入<code>git config --list</code>可以可以查看配置后的信息，若显示了name和email就说明配置成功了</p>
 <h2 id="git理论基础"><a href="#git理论基础" class="headerlink" title="git理论基础"></a>git理论基础</h2><p>git记录的是什么？<br>git记录的是每次版本的变动，原理则是将每个版本独立保存，它每个版本都是独立的存储，它看似消耗了很多空间，但是在分支管理上却带来了很多的益处和便利。<br>git实现版本控制的方法？<br><img src="https://i.imgur.com/KGS6BrG.png" alt=""><br>在git中有这样的三棵树：工作区、暂存区、仓库。<br>工作区就是我们通常使用的目录。<br>暂存区存放用户临时的改动，它本身是一个文件，保存的是即将提交到仓库的一个列表信息。<br>仓库是最终存放所有版本的位置，它有一个head指针，指向最新提交的内容。</p>
-<h3 id="git的工作流程"><a href="#git的工作流程" class="headerlink" title="git的工作流程"></a>git的工作流程</h3><p>git的工作流程一般是酱紫的：</p>
+<h3 id="git的工作流程和实战"><a href="#git的工作流程和实战" class="headerlink" title="git的工作流程和实战"></a>git的工作流程和实战</h3><p>git的工作流程一般是酱紫的：</p>
 <ol>
 <li>在工作目录中添加、修改文件</li>
 <li>将需要进行版本管理的文件放入暂存区域</li>
 <li>将暂存区域的文件提交到git仓库</li>
 </ol>
 <p>git管理的文件有三种状态：<br>——已修改（modified）<br>——已暂存（staged）<br>——已提交（committed）</p>
-<h2 id="git实战"><a href="#git实战" class="headerlink" title="git实战"></a>git实战</h2><p>git实现一个版本控制的基本操作如下</p>
+<p>git实现一个版本控制的基本操作如下</p>
 <pre><code>1. 创建一个新的文件夹，打开cmd进入文件夹，
 2. git init    //初始化仓库
 3. 在工作目录中创建文件README.md
@@ -136,7 +148,7 @@ git reset --hard     HEAD~
     --移动HEAD的指向，将其指向上一个快照
     --将HEAD移动后的指向的快照回滚到暂存区域
     --将暂存区域的文件还原到工作目录
-</code></pre><h4 id="git-回滚指定快照"><a href="#git-回滚指定快照" class="headerlink" title="git 回滚指定快照"></a>git 回滚指定快照</h4><p>git可以回滚到指定的快照，不需要head加上~，可以直接回到指定的版本</p>
+</code></pre><h4 id="git回滚指定快照"><a href="#git回滚指定快照" class="headerlink" title="git回滚指定快照"></a>git回滚指定快照</h4><p>git可以回滚到指定的快照，不需要head加上~，可以直接回到指定的版本</p>
 <pre><code>git reset &quot;版本号（前几个字母即可）&quot;
 </code></pre><h4 id="git回滚个别文件"><a href="#git回滚个别文件" class="headerlink" title="git回滚个别文件"></a>git回滚个别文件</h4><p>git可以回滚快照中的个别文件，在这里HEAD指针不会改变，具体命令如下：</p>
 <pre><code>git reset 版本快照 文件名/路径
@@ -176,21 +188,21 @@ git reset --soft HEAD~    //配合rm命令回到过去，soft只修改仓库指�
 <pre><code>git rm --cached 文件名
 </code></pre><h3 id="修改文件名"><a href="#修改文件名" class="headerlink" title="修改文件名"></a>修改文件名</h3><p>修改文件名之后，查看<code>git status</code>,git会以为你将原文件删除，又通知增加了一个新的文件，该文件名就会显得很麻烦，它也不是那么智能的。那若想修改文件名，可以在git上直接修改，跟linux相同：</p>
 <pre><code>git mv 旧文件名 新文件名        //查看status会显示rename状态
-</code></pre><h2 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h2><p>分支的概念，来张大图：<br><img src="https://i.imgur.com/k19bWGa.png" alt=""> </p>
+</code></pre><h2 id="git分支（创建和切换）"><a href="#git分支（创建和切换）" class="headerlink" title="git分支（创建和切换）"></a>git分支（创建和切换）</h2><p>分支的概念，来张大图：<br><img src="https://i.imgur.com/k19bWGa.png" alt=""> </p>
 <h4 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h4><pre><code>git branch 分支名    //创建分支
 
 git log --decorate    //decorate是让log命令显示了指向当前HEAD所在的分支
-</code></pre><h4 id="切换和切换分支"><a href="#切换和切换分支" class="headerlink" title="切换和切换分支"></a>切换和切换分支</h4><pre><code>git checkout 分支名    //切换到指定分支
+</code></pre><h4 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h4><pre><code>git checkout 分支名    //切换到指定分支
 
 git log --decorate --oneline --graph     --all    //oneline，精简化的形式显示；graph，图形化的形式显示;all,显示所有分支；
 //这些选项的先后顺序不影响
 </code></pre><p>分别在不同的分支下进行了操作并提交：如下图：<br><img src="https://i.imgur.com/iaUZSPg.png" alt=""></p>
-<h2 id="git合并和删除分支"><a href="#git合并和删除分支" class="headerlink" title="git合并和删除分支"></a>git合并和删除分支</h2><p>git分支合并的命令：</p>
+<h2 id="git分支合并和删除分支"><a href="#git分支合并和删除分支" class="headerlink" title="git分支合并和删除分支"></a>git分支合并和删除分支</h2><p>git分支合并的命令：</p>
 <pre><code>git merge 分支名        //将指定分支合并到当前的分支中
 </code></pre><p>若两个分支中的文件有不同的地方，那么git也就不知道你要保留那些，舍弃那些，此时打开该文件，发现git会帮你做一下修改：<br><img src="https://i.imgur.com/rgt93wC.png" alt=""><br>此时以<code>======</code>为界限，上边是branch分支的，下边是feature分支。在对文件进行修改之后，执行add，commit命令之后，git就会将两个分支自动合并了：<br><img src="https://i.imgur.com/JOk5SB0.png" alt=""></p>
 <pre><code>git checkout -b feature2        //-b就是直接创建一个新的分支并且转换到新的分支里去
 </code></pre><h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><pre><code>git branch -d 分支名        //-d就是删除分支的操作
-</code></pre><h2 id="git匿名分支和checkout命令"><a href="#git匿名分支和checkout命令" class="headerlink" title="git匿名分支和checkout命令"></a>git匿名分支和checkout命令</h2><h4 id="git匿名分支"><a href="#git匿名分支" class="headerlink" title="git匿名分支"></a>git匿名分支</h4><p>当使用<code>checkout</code>命令时，后边接上的如果不是分支名，而是<code>HEAD~</code>或者是某个版本的ID时，就会出现：<br><img src="https://i.imgur.com/qgxhwAO.png" alt=""></p>
+</code></pre><h2 id="git匿名分支和checkout命令详解"><a href="#git匿名分支和checkout命令详解" class="headerlink" title="git匿名分支和checkout命令详解"></a>git匿名分支和checkout命令详解</h2><h4 id="git匿名分支"><a href="#git匿名分支" class="headerlink" title="git匿名分支"></a>git匿名分支</h4><p>当使用<code>checkout</code>命令时，后边接上的如果不是分支名，而是<code>HEAD~</code>或者是某个版本的ID时，就会出现：<br><img src="https://i.imgur.com/qgxhwAO.png" alt=""></p>
 <p>这是因为使用了checkout命令但是却并没有指明分支名，所以Git创建了一个匿名的分支，但你重新切换到了其他的分支之后，在这个分支里所有进行的操作就会丢失，因为自己并没有为他们命名，切换之后自然也就找不到了。因此我们可以在匿名分支中做一些实验，反正又不影响正常的分支。<br>此时若我们使用checkout命令回到其他的分支，Git会提示：<br><img src="https://i.imgur.com/YtQHRWr.png" alt=""><br>这是我们可以使用以下命令进行保留这个分支</p>
 <pre><code>git branch 分支名 提供的分支号        //分支号现在还能找到，以后就很麻烦了
 </code></pre><h4 id="git-checkout命令详解"><a href="#git-checkout命令详解" class="headerlink" title="git checkout命令详解"></a>git checkout命令详解</h4><p>事实上，<code>checkout</code>命令有两个功能：</p>
@@ -208,13 +220,15 @@ git checkout --READE.me    //这里的文件名前有两个--的命令
 <h4 id="git切换分支"><a href="#git切换分支" class="headerlink" title="git切换分支"></a>git切换分支</h4><p>git在切换分支时我们可以以为它做了两件事：</p>
 <ol>
 <li>切换HEAD的指针：将HEAD的指针指向命令中的分支</li>
-<li>将分支中的快照恢复到暂存区域和工作目录<h4 id="checkout和reset命令的区别"><a href="#checkout和reset命令的区别" class="headerlink" title="checkout和reset命令的区别"></a>checkout和reset命令的区别</h4>那么回过头来，如果我们指向恢复指定的文件/路径，那么我们只需要恢复指定的快照到暂存区域和工作目录，而忽略HEAD指针的移动不就好了么？那样的话不就跟<code>reset</code>命令一样了么？<br>这里讲一下<code>checkout</code>和<code>reset</code>命令的区别：</li>
+<li>将分支中的快照恢复到暂存区域和工作目录<h4 id="checkout和reset命令的区别"><a href="#checkout和reset命令的区别" class="headerlink" title="checkout和reset命令的区别"></a>checkout和reset命令的区别</h4>那么回过头来，如果我们指向恢复指定的文件/路径，那么我们只需要恢复指定的快照到暂存区域和工作目录，而忽略HEAD指针的移动不就好了么？那样的话不就跟<code>reset</code>命令一样了么？<br>这里讲一下<code>checkout</code>和<code>reset</code>命令的区别：<h5 id="恢复文件"><a href="#恢复文件" class="headerlink" title="恢复文件"></a>恢复文件</h5><code>checkout</code>命令和<code>reset</code>命令都可以用于恢复指定快照的指定文件，并且它们都不会改变HEAD指针的指向 。它们的区别是：<br><code>reset</code>命令只能指定文件恢复到暂存区域（–mixed），而<code>checkout</code>命令是同时覆盖暂存区域和工作目录。<br>注意：也许你视图使用<code>git reset --hard HEAD~ README.md</code>命令让 reset同时覆盖工作目录，但Git会告诉你这是徒劳（此时reset不允许使用–soft或–har选项）。<br>这样看来，<code>reset</code>要比<code>checkout</code>命令更安全一些。<h5 id="恢复快照"><a href="#恢复快照" class="headerlink" title="恢复快照"></a>恢复快照</h5><code>reset</code>命令是用来“回到过去”的，根据选项的不同，<code>reset</code>命令移动HEAD指针（–soft）、覆盖暂存区域（–mixed，默认）、覆盖工作目录（–hard）。<br><code>checkout</code>命令虽说是用户切换分支，但事实上也是通过移动HEAD指针和覆盖暂存区域、工作目录来实现的。<br>主要区别：</li>
+<li>对于<code>reset --hard</code>来讲，<code>checkout</code>命令会更安全。<code>checkout</code>命令在切换分支前会先检查一下当前的工作状态，如果不是“clean”的话，Git不会允许你这样做，而<code>reset --hard</code>则直接覆盖所有数据。</li>
+<li>更新HEAD指向的区别：<code>reset</code>命令会移动HEAD所在分支的指向，而<code>checkout</code>命令只会移动HEAD自身来指向 另一个分支</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/28/git教程学习/" data-id="cji18gbrm0000i49glm8bjvqo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/28/git教程学习/" data-id="cji1scw730004uw9ggzwczqlt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
