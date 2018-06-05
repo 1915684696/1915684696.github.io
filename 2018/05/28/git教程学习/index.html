@@ -24,7 +24,9 @@
 <meta property="og:image" content="https://i.imgur.com/iaUZSPg.png">
 <meta property="og:image" content="https://i.imgur.com/rgt93wC.png">
 <meta property="og:image" content="https://i.imgur.com/JOk5SB0.png">
-<meta property="og:updated_time" content="2018-06-04T15:35:15.971Z">
+<meta property="og:image" content="https://i.imgur.com/qgxhwAO.png">
+<meta property="og:image" content="https://i.imgur.com/YtQHRWr.png">
+<meta property="og:updated_time" content="2018-06-05T09:47:20.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git教程学习">
 <meta name="twitter:description" content="git的安装请自行百度，这里只进行git的基本操作介绍：">
@@ -126,8 +128,10 @@ git reset HEAD~num    //表示退回到head之前的第num个版本
 <pre><code>git reset --mixed HEAD~        //默认的mixed，可以不写
     --移动HEAD的指向，将其指向上一个快照
     --将HEAD移动后的指向的快照回滚到暂存区域
-git    reset --soft     HEAD~
+
+git reset --soft     HEAD~
     --移动HEAD的指向，将其指向上一个快照
+
 git reset --hard     HEAD~
     --移动HEAD的指向，将其指向上一个快照
     --将HEAD移动后的指向的快照回滚到暂存区域
@@ -186,11 +190,31 @@ git log --decorate --oneline --graph     --all    //oneline，精简化的形式
 </code></pre><p>若两个分支中的文件有不同的地方，那么git也就不知道你要保留那些，舍弃那些，此时打开该文件，发现git会帮你做一下修改：<br><img src="https://i.imgur.com/rgt93wC.png" alt=""><br>此时以<code>======</code>为界限，上边是branch分支的，下边是feature分支。在对文件进行修改之后，执行add，commit命令之后，git就会将两个分支自动合并了：<br><img src="https://i.imgur.com/JOk5SB0.png" alt=""></p>
 <pre><code>git checkout -b feature2        //-b就是直接创建一个新的分支并且转换到新的分支里去
 </code></pre><h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><pre><code>git branch -d 分支名        //-d就是删除分支的操作
-</code></pre>
+</code></pre><h2 id="git匿名分支和checkout命令"><a href="#git匿名分支和checkout命令" class="headerlink" title="git匿名分支和checkout命令"></a>git匿名分支和checkout命令</h2><h4 id="git匿名分支"><a href="#git匿名分支" class="headerlink" title="git匿名分支"></a>git匿名分支</h4><p>当使用<code>checkout</code>命令时，后边接上的如果不是分支名，而是<code>HEAD~</code>或者是某个版本的ID时，就会出现：<br><img src="https://i.imgur.com/qgxhwAO.png" alt=""></p>
+<p>这是因为使用了checkout命令但是却并没有指明分支名，所以Git创建了一个匿名的分支，但你重新切换到了其他的分支之后，在这个分支里所有进行的操作就会丢失，因为自己并没有为他们命名，切换之后自然也就找不到了。因此我们可以在匿名分支中做一些实验，反正又不影响正常的分支。<br>此时若我们使用checkout命令回到其他的分支，Git会提示：<br><img src="https://i.imgur.com/YtQHRWr.png" alt=""><br>这是我们可以使用以下命令进行保留这个分支</p>
+<pre><code>git branch 分支名 提供的分支号        //分支号现在还能找到，以后就很麻烦了
+</code></pre><h4 id="git-checkout命令详解"><a href="#git-checkout命令详解" class="headerlink" title="git checkout命令详解"></a>git checkout命令详解</h4><p>事实上，<code>checkout</code>命令有两个功能：</p>
+<ol>
+<li>从历史快照（或者暂存区）中拷贝文件到工作目录</li>
+<li>切换分支</li>
+</ol>
+<h5 id="从历史快照（或者暂存区）中拷贝文件到工作目录"><a href="#从历史快照（或者暂存区）中拷贝文件到工作目录" class="headerlink" title="从历史快照（或者暂存区）中拷贝文件到工作目录"></a>从历史快照（或者暂存区）中拷贝文件到工作目录</h5><p>当给定某个文件名时，Git会从指定的提交拷贝文件到暂存区域和工作目录，比如：</p>
+<pre><code>git checkout HEAD~ README.md    //将仓库的上一个快照中的README.md文件复制到工作目录和暂存区域中
+
+git checkout README.md    //没有指定ID,直接从暂存区覆盖到工作目录
+
+git checkout --READE.me    //这里的文件名前有两个--的命令
+</code></pre><p>注意：–是为了预防你恰好有一个叫做README.md的分支，它就搞不懂你要回复文件还是切换分支了，所以约定两个（–）后边跟的是文件名，若没有一个叫README.md的分支，直接使用<code>git checkout README.md</code>也是可以的</p>
+<h4 id="git切换分支"><a href="#git切换分支" class="headerlink" title="git切换分支"></a>git切换分支</h4><p>git在切换分支时我们可以以为它做了两件事：</p>
+<ol>
+<li>切换HEAD的指针：将HEAD的指针指向命令中的分支</li>
+<li>将分支中的快照恢复到暂存区域和工作目录<h4 id="checkout和reset命令的区别"><a href="#checkout和reset命令的区别" class="headerlink" title="checkout和reset命令的区别"></a>checkout和reset命令的区别</h4>那么回过头来，如果我们指向恢复指定的文件/路径，那么我们只需要恢复指定的快照到暂存区域和工作目录，而忽略HEAD指针的移动不就好了么？那样的话不就跟<code>reset</code>命令一样了么？<br>这里讲一下<code>checkout</code>和<code>reset</code>命令的区别：</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/28/git教程学习/" data-id="cji0fefez0003ow9g2ovy8pw3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/28/git教程学习/" data-id="cji18gbrm0000i49glm8bjvqo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
