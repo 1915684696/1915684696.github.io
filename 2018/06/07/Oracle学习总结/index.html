@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Oracle学习总结 | Ning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这篇博客是Oracle课程中Oracle的启动和关闭、存储管理的总结，因为我觉得这部分是跟我之前学的数据库区别较大的一部分，也算是期末复习吧。课程课本：数据库应用与设计 基于案例驱动的Oracle实现。">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle学习总结">
+<meta property="og:url" content="http://yoursite.com/2018/06/07/Oracle学习总结/index.html">
+<meta property="og:site_name" content="Ning">
+<meta property="og:description" content="这篇博客是Oracle课程中Oracle的启动和关闭、存储管理的总结，因为我觉得这部分是跟我之前学的数据库区别较大的一部分，也算是期末复习吧。课程课本：数据库应用与设计 基于案例驱动的Oracle实现。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/ga8m83l.png">
+<meta property="og:image" content="https://i.imgur.com/CFpnCbY.png">
+<meta property="og:image" content="https://i.imgur.com/qMuPTUC.png">
+<meta property="og:image" content="https://i.imgur.com/VYmWDcB.png">
+<meta property="og:image" content="https://i.imgur.com/Vtu826r.png">
+<meta property="og:image" content="https://i.imgur.com/4crkJ2V.png">
+<meta property="og:image" content="https://i.imgur.com/0h2seP4.png">
+<meta property="og:image" content="https://i.imgur.com/gkR50aA.png">
+<meta property="og:updated_time" content="2018-06-12T16:04:36.438Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle学习总结">
+<meta name="twitter:description" content="这篇博客是Oracle课程中Oracle的启动和关闭、存储管理的总结，因为我觉得这部分是跟我之前学的数据库区别较大的一部分，也算是期末复习吧。课程课本：数据库应用与设计 基于案例驱动的Oracle实现。">
+<meta name="twitter:image" content="https://i.imgur.com/ga8m83l.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Ning" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/circle.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ning</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Oracle学习总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/07/Oracle学习总结/" class="article-date">
+  <time datetime="2018-06-07T07:17:33.000Z" itemprop="datePublished">2018-06-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Oracle学习总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这篇博客是Oracle课程中Oracle的启动和关闭、存储管理的总结，因为我觉得这部分是跟我之前学的数据库区别较大的一部分，也算是期末复习吧。<br>课程课本：数据库应用与设计 基于案例驱动的Oracle实现。<a id="more"></a><br>主要包括：</p>
+<ul>
+<li>数据库启动与关闭</li>
+<li>参数文件管理</li>
+<li>控制文件管理</li>
+<li>表空间和数据文件管理</li>
+<li>日志文件管理</li>
+</ul>
+<h2 id="Oracle的体系结构"><a href="#Oracle的体系结构" class="headerlink" title="Oracle的体系结构"></a>Oracle的体系结构</h2><hr>
+<p>Oracle是一个适合于中大型企业的数据库管理系统，其市场占有率是所有数据库管理系统中最高的，它的用户遍布银行、电信、航空、保险、金融等各个领域，基于此，公交公司管理信息系统决定采用Windows系统上的Oracle 10g数据库进行数据管理。</p>
+<h4 id="了解Oracle-10g的系统结构是怎样的？"><a href="#了解Oracle-10g的系统结构是怎样的？" class="headerlink" title="了解Oracle 10g的系统结构是怎样的？"></a>了解Oracle 10g的系统结构是怎样的？</h4><p>Oracle的体系结构通常由数据库管理系统（DBMS）和数据库文件两部分组成，DBMS是由一组Oracle后台进程和一些服务器分配的内存空间组成，数据库文件则是一系列的物理文件。</p>
+<h4 id="查询test数据库的物理存储文件基本信息（至少包含文件名、扩展名和位置信息等）"><a href="#查询test数据库的物理存储文件基本信息（至少包含文件名、扩展名和位置信息等）" class="headerlink" title="查询test数据库的物理存储文件基本信息（至少包含文件名、扩展名和位置信息等）?"></a>查询test数据库的物理存储文件基本信息（至少包含文件名、扩展名和位置信息等）?</h4><p>包括控制文件，日志文件和数据文件；扩展名：dbf；位置： D:\app\Administrator\oradata\test</p>
+<h4 id="Oracle数据库运行模式有哪两种，分别有什么含义？查询出test数据库是哪种运行模式？"><a href="#Oracle数据库运行模式有哪两种，分别有什么含义？查询出test数据库是哪种运行模式？" class="headerlink" title="Oracle数据库运行模式有哪两种，分别有什么含义？查询出test数据库是哪种运行模式？"></a>Oracle数据库运行模式有哪两种，分别有什么含义？查询出test数据库是哪种运行模式？</h4><ol>
+<li>归档方式(ARCHIVELOG):归档方式的目的在于当数据库发生故障时以最大限度恢复数据库,可以保证不丢失任何已提交的数据</li>
+<li>不归档方式(NOARCHIVELOG):只能恢复数据库到最近的回收点(冷备份或是逻辑备份),数据丢失时非常可能的。在sys用户下输入archive log list;回车查。test数据库是不归档方式</li>
+</ol>
+<h4 id="test数据库最小存储单位是什么？大小？"><a href="#test数据库最小存储单位是什么？大小？" class="headerlink" title="test数据库最小存储单位是什么？大小？"></a>test数据库最小存储单位是什么？大小？</h4><p>test数据库最小存储单位Oracle数据块，大小由DB_BLOCK_SIZE初始化参数制定。</p>
+<h4 id="SGA是什么，由哪些部分组成？查询test数据库SGA当前值、最大值及各组成部分的大小？"><a href="#SGA是什么，由哪些部分组成？查询test数据库SGA当前值、最大值及各组成部分的大小？" class="headerlink" title="SGA是什么，由哪些部分组成？查询test数据库SGA当前值、最大值及各组成部分的大小？"></a>SGA是什么，由哪些部分组成？查询test数据库SGA当前值、最大值及各组成部分的大小？</h4><p>SGA是系统全局区的英文简称，主要是用于存储数据库信息的内存区，该信息为数据库进程所共享（PGA不能共享的）。SGA主要由数据高速缓冲区（Database Buffer Cache）、共享池（Shared Pool）、重做日志缓冲区（Redo Log Buffer）、大型池（Large Pool）、Java池（Java Pool）、流池（Streams Pool）和其他结构（如固定SGA、锁管理等）组成。<br><img src="https://i.imgur.com/ga8m83l.png" alt=""></p>
+<h4 id="什么是后台进程？Oracle的关键后台进程有哪些？如何产生多个DBWR进程来写数据？"><a href="#什么是后台进程？Oracle的关键后台进程有哪些？如何产生多个DBWR进程来写数据？" class="headerlink" title="什么是后台进程？Oracle的关键后台进程有哪些？如何产生多个DBWR进程来写数据？"></a>什么是后台进程？Oracle的关键后台进程有哪些？如何产生多个DBWR进程来写数据？</h4><p>后台进程负责保证数据库的稳定工作，每当数据库启动时，这些后台进程会自动启动，并且持续整 个实例的生命周期，每个进程负责一个独特的任务。PMON、SMON、DBWR、LGWR、ARCn、CKPT六大核心进程.无论哪个进程出现故障,都会导致数据库实例崩溃.如果杀掉某个进程,在ALERT LOG中会发现各种错误.等。DBWR进程启动的数目受到Oracle系统初始化参数DB_WRITER_PROCESSES的限制，默认值是1，可以通过修改这个变量保证更多的DBWR进程的启动来提高性能。</p>
+<h2 id="数据库启动与关闭"><a href="#数据库启动与关闭" class="headerlink" title="数据库启动与关闭"></a>数据库启动与关闭</h2><h4 id="Oracle数据启动时要经历哪3个阶段"><a href="#Oracle数据启动时要经历哪3个阶段" class="headerlink" title="Oracle数据启动时要经历哪3个阶段?"></a>Oracle数据启动时要经历哪3个阶段?</h4><p>（1） 启动实例<br>（2） 装载数据库<br>（3） 打开数据库</p>
+<h4 id="Oracle数据启动经历3个阶段分别做了什么工作？"><a href="#Oracle数据启动经历3个阶段分别做了什么工作？" class="headerlink" title="Oracle数据启动经历3个阶段分别做了什么工作？"></a>Oracle数据启动经历3个阶段分别做了什么工作？</h4><p>（1）启动实例：启动实例时，读取初始化参数文件，为实例创建内存结构和后台进程，执行以下任务：<br>①读取初始化参数文件：如果启动命令指定PFILE子句，则根据该子句读取参数文件，      否则在系统默认位置读取服务器参数文件，如果找不到则读取文本参数文件。<br>②根据参数文件中的参数设置，分配SGA和PGA的内存空间。<br>③根据参数文件中的参数设置，启动后台进程。<br>在实例启动状态下，可以重建控制文件，重建数据库。<br>（2）装载数据库：装载数据库时，根据初始化参数文件中CONTROL_FILES参数的设置，找到控制文件，而且从控制文件中获取数据文件和重做日志文件的信息。如果控制文件找不到或损坏，装载数据库失败。<br>在装载数据库状态下，可以设置数据库的日志归档模式、执行数据库介质恢复、重新定位数据文件和重做日志文件。<br>（3）打开数据库：打开数据库时，根据控制文件中读取的信息打开所有联机的数据文件和重做日志文件，此时数据库才处于正常运行状态，用户能够与数据库建立连接并存取数据。如果某个数据文件或重做日志文件找不到或损坏，打开数据库失败。</p>
+<h4 id="Oracle数据库启动的命令有哪几种选项，它们的区别是什么？"><a href="#Oracle数据库启动的命令有哪几种选项，它们的区别是什么？" class="headerlink" title="Oracle数据库启动的命令有哪几种选项，它们的区别是什么？"></a>Oracle数据库启动的命令有哪几种选项，它们的区别是什么？</h4><pre><code>STARUP [ NOMOUNT | MOUNT | OPEN | FORCE ]  [ RESTRICT ] [PFILE=file_name ]
+</code></pre><ul>
+<li>NOMOUNT：只启动实例，不装载数据库，不打开数据库。</li>
+<li>MOUNT：启动实例，装载数据库，不打开数据库。</li>
+<li>OPEN：默认的启动选项，启动实例，装载数据库并打开数据库。</li>
+<li>FORCE：用于数据库重启。无论数据库启动到哪一步或者启动失败，使用FORCE选项可以先强制关闭数据库实例，然后重新启动，并且不需要使用数据库关闭的命令。</li>
+<li>RESTRICT：启动数据库后，只有RRESTRICTED SESSION权限的用户可以连接数据库。</li>
+<li>PFILE：使用PFILE选项中指定的文本参数文件作为初始化参数文件启动数据库。</li>
+</ul>
+<h4 id="Oracle数据库关闭的命令有哪几种选项，它们的区别是什么？"><a href="#Oracle数据库关闭的命令有哪几种选项，它们的区别是什么？" class="headerlink" title="Oracle数据库关闭的命令有哪几种选项，它们的区别是什么？"></a>Oracle数据库关闭的命令有哪几种选项，它们的区别是什么？</h4><pre><code>SHUTDOWN [ NORMAL | IMMEDIATE | TRANSACTIONAL | ABORT ]    
+</code></pre><ul>
+<li>NORMAL：以正常方式关闭数据库。数据库在关闭前将检查所有的用户连接，并且不允许有新的用户连接，等待所有用户连接都断开后再关闭数据库。默认的关闭选项，SHUTDOWN语句没有指定任何选项即使用NORMAL选项。</li>
+<li>IMMEDIATE：以立即方式关闭数据库。执行某些清除工作后才关闭数据库，不允许再有新的用户连接，所有用户未提交的事务回滚，终止回话，释放回话资源。当使用SHUTDOWN不能关闭数据库时，SHUTDOWN IMMEDIATE可以完成数据库的操作。</li>
+<li>TRANSACTIONAL：等待事务终结后关闭数据库。介于NORMAL和IMMEDIATE两种方式之间。不允许再有新的用户连接，不允许产生新的事务，等待用户未提交的事务提交后断开连接。</li>
+<li>ABORT：中止数据库。不允许再有新的用户连接，正在访问数据库的会话会被中止，所有用户未提交的事务不回滚。这是最快的关闭数据库方式，但是再次启动时要进行实例恢复，这些恢复操作同样是系统自动完成的，需要的时间较长。因此，应尽量避免使用ABORT选项关闭数据库。</li>
+</ul>
+<h2 id="参数文件管理"><a href="#参数文件管理" class="headerlink" title="参数文件管理"></a>参数文件管理</h2><h4 id="参数文件的作用是什么"><a href="#参数文件的作用是什么" class="headerlink" title="参数文件的作用是什么?"></a>参数文件的作用是什么?</h4><p>初始化参数文件是Oracle中一个很关键的文件，记录了数据库大量的配置参数，通过这些参数可以管理数据库和实例，进行数据库设计及性能调整。当Oracle数据库启动时，第一步就是从初始化参数文件中读取初始化参数以便启动实例。</p>
+<h4 id="Oracle-10g后有几种参数文件-它们之间有什么区别"><a href="#Oracle-10g后有几种参数文件-它们之间有什么区别" class="headerlink" title="Oracle 10g后有几种参数文件,它们之间有什么区别?"></a>Oracle 10g后有几种参数文件,它们之间有什么区别?</h4><p>初始化参数文件有文本参数文件（PFILE）和服务器参数文件（SPFILE）两种形式。<br>主要的区别是：</p>
+<ol>
+<li>pfile是文本文件，spfile是二进制文件</li>
+<li>pfile可以通过文本编辑器修改，spfile主要是通过alter system set parameter=value [scope=memory|spfile|both]修改</li>
+</ol>
+<h4 id="Oracle-10g启动过程中在哪个阶段读取参数文件"><a href="#Oracle-10g启动过程中在哪个阶段读取参数文件" class="headerlink" title="Oracle 10g启动过程中在哪个阶段读取参数文件?"></a>Oracle 10g启动过程中在哪个阶段读取参数文件?</h4><p>在数据库实例启动时读取。</p>
+<h4 id="Oracle-10g启动过程读取参数文件的顺序是什么"><a href="#Oracle-10g启动过程读取参数文件的顺序是什么" class="headerlink" title="Oracle 10g启动过程读取参数文件的顺序是什么?"></a>Oracle 10g启动过程读取参数文件的顺序是什么?</h4><p>oracle启动时，读取参数文件的顺序是：</p>
+<pre><code>1. spfile$ORACLE_SID.ORA(创建数据库时创建的spfile)
+2. spfile.ora(oracle缺省spfile文件)
+3. init$ORACLE_SID.ora(创建数据库时创建的pfile)
+4. init.ora(oracle缺省pfile文件)
+</code></pre><p>oracle会按顺序读出这些参数文件，如果在1没有找到就去找2，直到找到。</p>
+<h4 id="写出语句把当前Oracle的spfile文件内容转换为pfile文件-保存位置为C-orclpfile-ora"><a href="#写出语句把当前Oracle的spfile文件内容转换为pfile文件-保存位置为C-orclpfile-ora" class="headerlink" title="写出语句把当前Oracle的spfile文件内容转换为pfile文件,保存位置为C:\orclpfile.ora."></a>写出语句把当前Oracle的spfile文件内容转换为pfile文件,保存位置为C:\orclpfile.ora.</h4><pre><code>create pfile=&apos;c:\orclpfile.ora&apos; from spfile=&apos;d:\app\Administrator\product\11.2.0\dbhome_1\database\SPFILEORCL.ora&apos;;
+</code></pre><h4 id="把C-orclpfile-ora文件转换为当前spfile文件的默认位置替换"><a href="#把C-orclpfile-ora文件转换为当前spfile文件的默认位置替换" class="headerlink" title="把C:\orclpfile.ora文件转换为当前spfile文件的默认位置替换."></a>把C:\orclpfile.ora文件转换为当前spfile文件的默认位置替换.</h4><pre><code>create spfile from pfile=&apos;c:\orclpfile.ora&apos;;
+</code></pre><h4 id="用C-orclpfile-ora文件进行startup启动数据库"><a href="#用C-orclpfile-ora文件进行startup启动数据库" class="headerlink" title="用C:\orclpfile.ora文件进行startup启动数据库"></a>用C:\orclpfile.ora文件进行startup启动数据库</h4><pre><code>startup pfile=&apos;c:\orclpfile.ora&apos;;
+</code></pre><h2 id="控制文件管理"><a href="#控制文件管理" class="headerlink" title="控制文件管理"></a>控制文件管理</h2><h4 id="控制文件的作用是什么"><a href="#控制文件的作用是什么" class="headerlink" title="控制文件的作用是什么?"></a>控制文件的作用是什么?</h4><p>控制文件是一个二进制文件。用于记录Oracle数据库的物理存储结构和当前状态。数据库的启动和正常运行都离不开控制文件。一旦控制文件损坏，数据库将不能正常运行。</p>
+<h4 id="Oracle数据库启动时什么阶段用到控制文件"><a href="#Oracle数据库启动时什么阶段用到控制文件" class="headerlink" title="Oracle数据库启动时什么阶段用到控制文件?"></a>Oracle数据库启动时什么阶段用到控制文件?</h4><p>在数据库装载阶段，oracle会用到控制文件。</p>
+<h4 id="Oracle数据库中有效控制文件的个数和位置信息存放在什么地方"><a href="#Oracle数据库中有效控制文件的个数和位置信息存放在什么地方" class="headerlink" title="Oracle数据库中有效控制文件的个数和位置信息存放在什么地方?"></a>Oracle数据库中有效控制文件的个数和位置信息存放在什么地方?</h4><p>每个控制文件只属于一个数据库，但为了防止数据丢失，一个数据库一般不止一个控制文件，实际的商用数据库一般有三个控制文件，最多可以有八个控制文件。控制文件放在“oracledate\实例名”目录下。</p>
+<h4 id="控制文件中包含哪些信息？这些信息由谁修改？控制文件破损数据库可以启动吗？"><a href="#控制文件中包含哪些信息？这些信息由谁修改？控制文件破损数据库可以启动吗？" class="headerlink" title="控制文件中包含哪些信息？这些信息由谁修改？控制文件破损数据库可以启动吗？"></a>控制文件中包含哪些信息？这些信息由谁修改？控制文件破损数据库可以启动吗？</h4><p>控制文件中包含了记录了数据库的物理存储结构和当前的状态，记录了数据文件和重做日志文件的名字及位置。<br>一个控制文件只属于一个数据库，创建数据库的同时创建控制文件。当更改数据库的物理存储结构时，Oracle会自动更新控制文件，任何用户包括数据库管理员都不能修改控制文件中的数据，控制文件由Oracle自动完成。</p>
+<h4 id="在磁盘上不同位置-2个以上不同的目录-其中一个目录为C-lt-自己的学号-gt-创建多路控制文件，写出步骤和语句。"><a href="#在磁盘上不同位置-2个以上不同的目录-其中一个目录为C-lt-自己的学号-gt-创建多路控制文件，写出步骤和语句。" class="headerlink" title="在磁盘上不同位置(2个以上不同的目录,其中一个目录为C:\&lt;自己的学号&gt;)创建多路控制文件，写出步骤和语句。"></a>在磁盘上不同位置(2个以上不同的目录,其中一个目录为C:\&lt;自己的学号&gt;)创建多路控制文件，写出步骤和语句。</h4><p><img src="https://i.imgur.com/CFpnCbY.png" alt=""></p>
+<h4 id="在C-lt-自己的学号-gt-目录下备份控制文件。"><a href="#在C-lt-自己的学号-gt-目录下备份控制文件。" class="headerlink" title="在C:\&lt;自己的学号&gt;目录下备份控制文件。"></a>在C:\&lt;自己的学号&gt;目录下备份控制文件。</h4><pre><code>alter database backup controlfile to &apos;c:\16031637\contorl.bak&apos;;
+</code></pre><h4 id="备份追踪文件，把操作语句过程和结果（追踪文件名，追踪文件内容）截图。"><a href="#备份追踪文件，把操作语句过程和结果（追踪文件名，追踪文件内容）截图。" class="headerlink" title="备份追踪文件，把操作语句过程和结果（追踪文件名，追踪文件内容）截图。"></a>备份追踪文件，把操作语句过程和结果（追踪文件名，追踪文件内容）截图。</h4><pre><code>alter database backup controlfile to trace;
+
+show parameter user_dump_dest
+</code></pre><p><img src="https://i.imgur.com/qMuPTUC.png" alt=""></p>
+<h2 id="表空间和数据文件管理"><a href="#表空间和数据文件管理" class="headerlink" title="表空间和数据文件管理"></a>表空间和数据文件管理</h2><h4 id="数据库文件的作用是什么-表空间的作用是什么"><a href="#数据库文件的作用是什么-表空间的作用是什么" class="headerlink" title="数据库文件的作用是什么?表空间的作用是什么?"></a>数据库文件的作用是什么?表空间的作用是什么?</h4><p>表空间是Oracle数据库中最大的逻辑存储结构，同时也是直接与数据库物理存储结构相关联的逻辑单位。<br>（1）它决定了数据库试题的空间分配<br>（2）设置数据库用户的空间份额<br>（3）控制数据库部分数据的可用性<br>（4）分布数据于不同的设备之间以改善性能<br>（5）备份和恢复数据</p>
+<h4 id="数据文件与表空间之间的关系是什么"><a href="#数据文件与表空间之间的关系是什么" class="headerlink" title="数据文件与表空间之间的关系是什么?"></a>数据文件与表空间之间的关系是什么?</h4><p>Oracle数据库的表空间在物理上表现为磁盘数据文件；也就是说Oracle数据库中的数据逻辑存储表空间中，物理存储在表空间包含的数据文件中。两者关系密切但又有些不同：<br>（1）一个表空间至少包含一个数据文件<br>（2）段可以跨多个数据文件，但是不能跨多个表空间。<br>（3）一个数据库必须有SYSTEM表空间和SYSTEM表空间，数据库创建时，系统自动把第一个数据文件分配给SYSTEM表空间。</p>
+<h4 id="Oralce-10g-11g安装后默认的表空间名称有哪些，其作用是什么？默认的数据文件位置是什么"><a href="#Oralce-10g-11g安装后默认的表空间名称有哪些，其作用是什么？默认的数据文件位置是什么" class="headerlink" title="Oralce 10g/11g安装后默认的表空间名称有哪些，其作用是什么？默认的数据文件位置是什么?"></a>Oralce 10g/11g安装后默认的表空间名称有哪些，其作用是什么？默认的数据文件位置是什么?</h4><p>（1）SYSTEM表空间，系统创建数据库时自动创建，用于存储系统数据字典、系统管理信息、用户数据表、索引等对象。<br>（2）SYSAUX是10g新增的辅助SYSTEM表空间，由系统内部自动维护，不存储用户数据。<br>（3）UNDO表空间（撤销表空间）用来存储撤销信息，只能存回退段，不能存其他类型的段。<br>（4）USER表空间（用户表空间）主要存用户数据。<br>（5）TEMP临时表空间存储执行SQL语句时产生的临时数据（主要是排序或统计），一般此表空间所有用户通用。<br>默认的数据文件位置在 oradata\实例名 目录下</p>
+<h4 id="建立用户表空间tbsxxx-xxx为学号-，该表空间基于2个数据文件-ORACLE-BASE-oradata-orcl-tbsxxx-01-dbf-ORACLE-BASE-oradata-orcl-tbsxxx-02-dbf-，其大小均为50M，其中一个数据文件（02）存储空间可自动扩展5m，本地管理。设置tbsxxx为用户数据存储的默认表空间。验证创建结果。"><a href="#建立用户表空间tbsxxx-xxx为学号-，该表空间基于2个数据文件-ORACLE-BASE-oradata-orcl-tbsxxx-01-dbf-ORACLE-BASE-oradata-orcl-tbsxxx-02-dbf-，其大小均为50M，其中一个数据文件（02）存储空间可自动扩展5m，本地管理。设置tbsxxx为用户数据存储的默认表空间。验证创建结果。" class="headerlink" title="建立用户表空间tbsxxx(xxx为学号)，该表空间基于2个数据文件(%ORACLE_BASE\ oradata\orcl%\tbsxxx_01.dbf, %ORACLE_BASE\ oradata\orcl%\tbsxxx_02.dbf)，其大小均为50M，其中一个数据文件（02）存储空间可自动扩展5m，本地管理。设置tbsxxx为用户数据存储的默认表空间。验证创建结果。"></a>建立用户表空间tbsxxx(xxx为学号)，该表空间基于2个数据文件(%ORACLE_BASE\ oradata\orcl%\tbsxxx_01.dbf, %ORACLE_BASE\ oradata\orcl%\tbsxxx_02.dbf)，其大小均为50M，其中一个数据文件（02）存储空间可自动扩展5m，本地管理。设置tbsxxx为用户数据存储的默认表空间。验证创建结果。</h4><p><img src="https://i.imgur.com/VYmWDcB.png" alt=""><br>验证：</p>
+<pre><code>select username,default_tablespace,temporary_tablespace from dba_users;
+</code></pre><h4 id="更改tbsxxx-01-dbf数据文件的大小为100M。"><a href="#更改tbsxxx-01-dbf数据文件的大小为100M。" class="headerlink" title="更改tbsxxx_01.dbf数据文件的大小为100M。"></a>更改tbsxxx_01.dbf数据文件的大小为100M。</h4><pre><code>alter database datafile &apos;d:\app\Administrator\oradata\test\tb16031637_01.dbf&apos; resize 100m;
+</code></pre><h4 id="表空间的状态有几种？在哪种状态下可以进行数据文件的移动？"><a href="#表空间的状态有几种？在哪种状态下可以进行数据文件的移动？" class="headerlink" title="表空间的状态有几种？在哪种状态下可以进行数据文件的移动？"></a>表空间的状态有几种？在哪种状态下可以进行数据文件的移动？</h4><p>（1）脱机，脱机下有三种模式：正常、临时、立即<br>（2）联机，<br>（3）只读<br>（4）读写<br>脱机状态可以对数据文件进行移动</p>
+<h4 id="把-ORACLE-BASE-oradata-orcl-tbsxxx-02-dbf-文件移动到c-xxx-本人学号-tbsxxx-02-dbf新目录。"><a href="#把-ORACLE-BASE-oradata-orcl-tbsxxx-02-dbf-文件移动到c-xxx-本人学号-tbsxxx-02-dbf新目录。" class="headerlink" title="把%ORACLE_BASE\ oradata\orcl%\tbsxxx_02.dbf 文件移动到c:\xxx(本人学号)\ tbsxxx_02.dbf新目录。"></a>把%ORACLE_BASE\ oradata\orcl%\tbsxxx_02.dbf 文件移动到c:\xxx(本人学号)\ tbsxxx_02.dbf新目录。</h4><p><img src="https://i.imgur.com/Vtu826r.png" alt=""></p>
+<h2 id="日志文件管理"><a href="#日志文件管理" class="headerlink" title="日志文件管理"></a>日志文件管理</h2><h4 id="Oracle-重做日志文件的作用是什么"><a href="#Oracle-重做日志文件的作用是什么" class="headerlink" title="Oracle 重做日志文件的作用是什么?"></a>Oracle 重做日志文件的作用是什么?</h4><p>数据库的日志文件通常被用来存放数据库变化信息。当数据被意外地删除或者修改时，或在出现实例故障或介质故障的情况下，可以利用日志文件进行恢复。</p>
+<h4 id="重做日志文件组与重做日志文件之间的关系是什么"><a href="#重做日志文件组与重做日志文件之间的关系是什么" class="headerlink" title="重做日志文件组与重做日志文件之间的关系是什么?"></a>重做日志文件组与重做日志文件之间的关系是什么?</h4><p>每个重做日志文件组由一组完全相同的重做日志文件组成，每个数据库要求至少有两个重做日志文件组，每组至少要包含一个重做日志文件。</p>
+<h4 id="Oracle数据库的日志归档模式有哪两种-默认的是那种"><a href="#Oracle数据库的日志归档模式有哪两种-默认的是那种" class="headerlink" title="Oracle数据库的日志归档模式有哪两种?默认的是那种?"></a>Oracle数据库的日志归档模式有哪两种?默认的是那种?</h4><p>数据库的日志归档模式有归档和非归档两种，默认的是不归档。</p>
+<h4 id="给数据库增加一个日志文件组-group4-成员为c-xxx-本人学号-redo04-1-log-size-10m-并通过v-log查看数据库重做日志组的情况-group-members-status"><a href="#给数据库增加一个日志文件组-group4-成员为c-xxx-本人学号-redo04-1-log-size-10m-并通过v-log查看数据库重做日志组的情况-group-members-status" class="headerlink" title="给数据库增加一个日志文件组 group4,  成员为c:\xxx(本人学号)\redo04_1.log ,size 10m.并通过v$log查看数据库重做日志组的情况(group#,members,status)."></a>给数据库增加一个日志文件组 group4,  成员为c:\xxx(本人学号)\redo04_1.log ,size 10m.并通过v$log查看数据库重做日志组的情况(group#,members,status).</h4><p><img src="https://i.imgur.com/4crkJ2V.png" alt=""></p>
+<h4 id="给group-4-再增加一个新成员-c-xxx-本人学号-redo04-2-log-并通过v-logfile查看各文件的情况（member-status"><a href="#给group-4-再增加一个新成员-c-xxx-本人学号-redo04-2-log-并通过v-logfile查看各文件的情况（member-status" class="headerlink" title="给group 4 再增加一个新成员  c:\xxx(本人学号)\redo04_2.log.并通过v$logfile查看各文件的情况（member,status)."></a>给group 4 再增加一个新成员  c:\xxx(本人学号)\redo04_2.log.并通过v$logfile查看各文件的情况（member,status).</h4><p><img src="https://i.imgur.com/0h2seP4.png" alt=""></p>
+<h4 id="把c-xxx-本人学号-redo04-2-log文件移动到c-redo04-2-log。并备份控制文件信息到追踪文件。"><a href="#把c-xxx-本人学号-redo04-2-log文件移动到c-redo04-2-log。并备份控制文件信息到追踪文件。" class="headerlink" title="把c:\xxx(本人学号)\redo04_2.log文件移动到c:\redo04_2.log。并备份控制文件信息到追踪文件。"></a>把c:\xxx(本人学号)\redo04_2.log文件移动到c:\redo04_2.log。并备份控制文件信息到追踪文件。</h4><p><img src="https://i.imgur.com/gkR50aA.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/07/Oracle学习总结/" data-id="cjihd62ix0003fc9gwqb4pm7n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/28/git教程学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">git教程学习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习计划/">学习计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Oracle/" style="font-size: 15px;">Oracle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/学习计划/" style="font-size: 10px;">学习计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/07/Oracle学习总结/">Oracle学习总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/28/git教程学习/">git教程学习</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/12/jQuery学习笔记/">jQuery学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/18/JavaScript读书笔记/">JavaScript学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/">ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

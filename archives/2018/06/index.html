@@ -5,23 +5,15 @@
   
 
   
-  <title>ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务 | Ning</title>
+  <title>Archives: 2018/6 | Ning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在写Oracle作业是遇到了这个问题：老师让查数据库SGA各部分组成的大小，在超级管理员用户下输入shutdown immediate;然后在输入startup;回车然后就出错了，自己查询原因后已成功解决。">
-<meta name="keywords" content="Oracle">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务">
-<meta property="og:url" content="http://yoursite.com/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Ning">
+<meta property="og:url" content="http://yoursite.com/archives/2018/06/index.html">
 <meta property="og:site_name" content="Ning">
-<meta property="og:description" content="最近在写Oracle作业是遇到了这个问题：老师让查数据库SGA各部分组成的大小，在超级管理员用户下输入shutdown immediate;然后在输入startup;回车然后就出错了，自己查询原因后已成功解决。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.imgur.com/efBwQGr.png">
-<meta property="og:image" content="https://i.imgur.com/StvEyoK.jpg">
-<meta property="og:updated_time" content="2018-04-23T14:33:56.256Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务">
-<meta name="twitter:description" content="最近在写Oracle作业是遇到了这个问题：老师让查数据库SGA各部分组成的大小，在超级管理员用户下输入shutdown immediate;然后在输入startup;回车然后就出错了，自己查询原因后已成功解决。">
-<meta name="twitter:image" content="https://i.imgur.com/efBwQGr.png">
+<meta name="twitter:title" content="Ning">
   
     <link rel="alternate" href="/atom.xml" title="Ning" type="application/atom+xml">
   
@@ -68,69 +60,40 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/" class="article-date">
-  <time datetime="2018-04-15T10:32:53.000Z" itemprop="datePublished">2018-04-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/06/07/Oracle学习总结/" class="archive-article-date">
+  <time datetime="2018-06-07T07:17:33.000Z" itemprop="datePublished">Jun 7</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/06/07/Oracle学习总结/">Oracle学习总结</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在写Oracle作业是遇到了这个问题：老师让查数据库SGA各部分组成的大小，在超级管理员用户下输入<code>shutdown immediate;</code>然后在输入<code>startup;</code>回车然后就出错了，自己查询原因后已成功解决。<a id="more"></a><br><br><img src="https://i.imgur.com/efBwQGr.png" alt=""><br>我是将Oracle装在了虚拟机里，安装成功后并没有进行监听程序的配置，重新打开后就会遇到这个问题。这个错误的原因就是客户端未监听到实例服务名，监听配置文件Listener.ora是可以不指定监听的服务名的，Oracle10g也没有。<br><br>既然这个错误出现了，首先咱们可以考虑重启监听程序试试，若还是不行的话就考虑改Listener.ora文件，在Listener.ora中增加指定监听的实例名，这样就解决了。方法如下：<br><br>在Listener.ora中增加以下代码</p>
-<pre><code>(SID_DESC =
-    (GLOBAL_DBNAME = ORCL)
-    (ORACLE_HOME = D:\app\Administrator\product\11.2.0\dbhome_1)
-    (SID_NAME = ORCL)
-)
-</code></pre><p>如下图：<br><img src="https://i.imgur.com/StvEyoK.jpg" alt=""><br>然后重启监听服务就解决了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/" data-id="cjihd62it0001fc9g1cn4ipqr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/04/18/JavaScript读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          JavaScript学习笔记
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/04/15/为Hexo主题maupassant添加LiveRe评论系统/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">为Hexo主题maupassant添加LiveRe评论系统</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
+
 
 </section>
         
