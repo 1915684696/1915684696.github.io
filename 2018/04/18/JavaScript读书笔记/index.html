@@ -8,7 +8,7 @@
   <title>JavaScript学习笔记 | Ning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="笔记参考《JavaScript实战》（西南财经大学出版社）">
-<meta name="keywords" content="读书笔记">
+<meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript学习笔记">
 <meta property="og:url" content="http://yoursite.com/2018/04/18/JavaScript读书笔记/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/Zf3Sydr.jpg">
 <meta property="og:image" content="https://i.imgur.com/trQZx7F.gif">
-<meta property="og:updated_time" content="2018-06-06T01:00:03.394Z">
+<meta property="og:updated_time" content="2018-06-16T13:52:51.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript学习笔记">
 <meta name="twitter:description" content="笔记参考《JavaScript实战》（西南财经大学出版社）">
@@ -223,336 +223,7 @@ alert(box.reverse());    //5,4,3,2,1
 alert(box);                //5,4,3,2,1
 alert(box.sort());        //1,2,3,4,5
 alert(box);                //1,2,3,4,5
-</code></pre><h2 id="七、正则表达式"><a href="#七、正则表达式" class="headerlink" title="七、正则表达式"></a>七、正则表达式</h2><p>正则表达式是一个用来描述字符模式的对象，主要用来验证客户端的输入数据。</p>
-<h4 id="正则表达式的模式修饰符的可选参数"><a href="#正则表达式的模式修饰符的可选参数" class="headerlink" title="正则表达式的模式修饰符的可选参数"></a>正则表达式的模式修饰符的可选参数</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>i</td>
-<td>忽略大小写</td>
-</tr>
-<tr>
-<td>g</td>
-<td>全局匹配</td>
-</tr>
-<tr>
-<td>m</td>
-<td>多行匹配</td>
-</tr>
-</tbody>
-</table>
-<h4 id="正则表达式的两种创建方式"><a href="#正则表达式的两种创建方式" class="headerlink" title="正则表达式的两种创建方式"></a>正则表达式的两种创建方式</h4><p>new运算符和字面量方式。</p>
-<pre><code>var box = new RegExp(&apos;box&apos;，&apos;i&apos;);    //new运算符创建
-var box = /box/i;                    //字面量方式创建
-</code></pre><h4 id="RegExp对象的方法"><a href="#RegExp对象的方法" class="headerlink" title="RegExp对象的方法"></a>RegExp对象的方法</h4><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>test</td>
-<td>在字符串中测试模式匹配，返回true或false</td>
-</tr>
-<tr>
-<td>exec</td>
-<td>在字符串中执行匹配搜索，返回结果数组</td>
-</tr>
-</tbody>
-</table>
-<pre><code>var box = new RegExp(&apos;box&apos;,&apos;i&apos;);
-var str = &apos;This is a Box!&apos;;
-alert(box.test(str));        //弹出框true；
-alert(box.exec(str));        //弹出框Box
-</code></pre><h4 id="String对象的正则表达式方法"><a href="#String对象的正则表达式方法" class="headerlink" title="String对象的正则表达式方法"></a>String对象的正则表达式方法</h4><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>match(pattern)</td>
-<td>返回pattern中的子串或null</td>
-</tr>
-<tr>
-<td>replace(pattren,replacement)</td>
-<td>用replacement替换pattern</td>
-</tr>
-<tr>
-<td>search(pattren)</td>
-<td>返回字符串中pattern开始位置</td>
-</tr>
-<tr>
-<td>split(pattern)</td>
-<td>返回字符串指定pattern拆分的数组</td>
-</tr>
-</tbody>
-</table>
-<h4 id="获取控制"><a href="#获取控制" class="headerlink" title="获取控制"></a>获取控制</h4><p>正则表达式元字符是包含特殊含义的字符。它们有一些特殊功能，可以控制匹配模式的方式。反斜杠后的元字符将失去其特殊含义。</p>
-<p>字符类：单个字符和数字</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">元字符/元符号</th>
-<th>匹配情况</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">.</td>
-<td>匹配除换行符外的任意字符</td>
-</tr>
-<tr>
-<td style="text-align:center">[a-z0-9]</td>
-<td>匹配括号中的字符集中的任意字符</td>
-</tr>
-<tr>
-<td style="text-align:center">[^a-z0-9]</td>
-<td>匹配任意不在括号中的字符集中的字符</td>
-</tr>
-<tr>
-<td style="text-align:center">\d</td>
-<td>匹配数字</td>
-</tr>
-<tr>
-<td style="text-align:center">\D</td>
-<td>匹配非数字，同[^0-9]相同</td>
-</tr>
-<tr>
-<td style="text-align:center">\w</td>
-<td>匹配字母和数字及_</td>
-</tr>
-<tr>
-<td style="text-align:center">\W</td>
-<td>匹配非字母和数字及_</td>
-</tr>
-</tbody>
-</table>
-<p>字符类：空白字符</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">元字符</th>
-<th>/元符号</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">\0</td>
-<td>匹配null字符</td>
-</tr>
-<tr>
-<td style="text-align:center">\b</td>
-<td>匹配空格字符</td>
-</tr>
-<tr>
-<td style="text-align:center">\f</td>
-<td>匹配进制字符</td>
-</tr>
-<tr>
-<td style="text-align:center">\n</td>
-<td>匹配换行符</td>
-</tr>
-<tr>
-<td style="text-align:center">\r</td>
-<td>匹配回车符</td>
-</tr>
-<tr>
-<td style="text-align:center">\t</td>
-<td>匹配制表符</td>
-</tr>
-<tr>
-<td style="text-align:center">\s</td>
-<td>匹配空白字符、空格、制表符、和换行符</td>
-</tr>
-<tr>
-<td style="text-align:center">\S</td>
-<td>匹配非空白字符</td>
-</tr>
-</tbody>
-</table>
-<p>字符类：锚字符</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">元字符</th>
-<th>匹配情况</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">^</td>
-<td>行首字符</td>
-</tr>
-<tr>
-<td style="text-align:center">$</td>
-<td>行尾字符</td>
-</tr>
-<tr>
-<td style="text-align:center">\A</td>
-<td>只有匹配字符串开始处</td>
-</tr>
-<tr>
-<td style="text-align:center">\b</td>
-<td>匹配单词边界，词在[]内时无效</td>
-</tr>
-<tr>
-<td style="text-align:center">\B</td>
-<td>匹配非单词边界</td>
-</tr>
-<tr>
-<td style="text-align:center">\G</td>
-<td>匹配当前搜索的开始位置</td>
-</tr>
-<tr>
-<td style="text-align:center">\Z</td>
-<td>匹配字符串结束处或行尾</td>
-</tr>
-<tr>
-<td style="text-align:center">\z</td>
-<td>只匹配字符串结束处</td>
-</tr>
-</tbody>
-</table>
-<p>字符类：重复字符</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">元字符/元符号</th>
-<th>匹配情况</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">x?</td>
-<td>匹配0个或1个x</td>
-</tr>
-<tr>
-<td style="text-align:center">x*</td>
-<td>匹配0个或任意多个x</td>
-</tr>
-<tr>
-<td style="text-align:center">x+</td>
-<td>匹配至少一个x</td>
-</tr>
-<tr>
-<td style="text-align:center">(xyz)+</td>
-<td>匹配至少一个(xyz)</td>
-</tr>
-<tr>
-<td style="text-align:center">x{m,n}</td>
-<td>匹配至少m个、最多n个x</td>
-</tr>
-</tbody>
-</table>
-<p>字符类：替代字符</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">元字符/元符号</th>
-<th>匹配情况</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">this\</td>
-<td>where\</td>
-<td>logo</td>
-<td>匹配this或where或logo中任意一个</td>
-</tr>
-</tbody>
-</table>
-<p>字符类：记录字符</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">元字符/元符号</th>
-<th>匹配情况</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">(string)</td>
-<td>用于反向引用的分组</td>
-</tr>
-<tr>
-<td style="text-align:center">\1或$1</td>
-<td>匹配第一个分组中的内容</td>
-</tr>
-<tr>
-<td style="text-align:center">\2或$2</td>
-<td>匹配第二个分组中的内容</td>
-</tr>
-<tr>
-<td style="text-align:center">\3或$3</td>
-<td>匹配第三个分组中的内容</td>
-</tr>
-</tbody>
-</table>
-<pre><code>/*使用点元字符/
-var pattern = /g..gle/;        //匹配一个任意字符
-var str = &apos;google&apos;;
-alert(pattern.test(str));
-
-/*重复匹配*/
-var pattern = /g.*gle/;        //.匹配0个、一个或多个
-var str = &apos;google&apos;;
-alert(pattern.test(str));
-
-/*使用字符类匹配*/
-var pattern = /g[a-zA-Z_]*gle;    //[a-z]*表示任意个a-z中的字符
-var str = &apos;google&apos;;
-alert(pattern.test(str));
-
-/*使用元符号匹配*/
-var pattern = /g\w*gle/;    //\w*匹配任意多个所有字母数字_
-var str = &apos;google&apos;;
-alert(pattern.test(str));
-
-/*使用锚元字符匹配*/
-var pattern = /^google $/;    //^从开头匹配,$从结尾开始匹配
-var str = &apos;google&apos;;
-alert(pattern.test(str));
-
-/*使用或模式匹配*/
-var pattern = /google|baidu|bing/;    //匹配三种其中一种字符
-var str = &apos;google&apos;;
-alert(pattern.test(str));
-
-/*使用分组模式匹配*/
-var pattern = /(google){4,8}/;    //匹配分组里的字符4-8次
-var str = &apos;googlegoogle&apos;;
-alert(pattern.test(str));
-</code></pre><h4 id="常用的正则表达式"><a href="#常用的正则表达式" class="headerlink" title="常用的正则表达式"></a>常用的正则表达式</h4><pre><code>//检查邮政编码
-var pattern = /[1-9][0-9]{5}/;    //共6位数字，第一位不能为0
-var str = &apos;224000&apos;;
-
-//检查文件压缩包
-var pattern = /[\w]+\.zip|rar|gz/;    //\w表示所有数字和字母加下划线
-var str = &apos;123.zip&apos;;
-
-//删除多余空格
-var pattern = /\s/g;    //g必须全局，才能全部匹配
-var str = &apos;111 222 333&apos;;
-var result = str.replace(pattern,&quot;);
-
-//简单的电子邮箱验证
-var pattern = /^([a-zA-Z0-9_\.\-]@([a-zA-Z0-9_\.\_]+)\.([a-zA-Z]{2,4})$/;
-var str = &apos;yc60.com@gmail.com&apos;;
-alert(pattern.test(str));
-
-var pattern = /^([\w\.\-]+)@([\w\.\-]+)\.([\w]{2,4})$/;
-var str = &apos;yc60.com@gmail.com&apos;
-</code></pre><h2 id="八、BOM"><a href="#八、BOM" class="headerlink" title="八、BOM"></a>八、BOM</h2><p>BOM也叫浏览器对象模型，它提供了很多对象，用于访问浏览器的功能。BOM缺少规范，每个浏览器提供商 又按照自己想法去扩展它，那么浏览器共有对象就成了事实的标准。所以，BOM本身是没有标准的或者还没有哪个组织去将它标准化。</p>
+</code></pre><h2 id="七、BOM"><a href="#七、BOM" class="headerlink" title="七、BOM"></a>七、BOM</h2><p>BOM也叫浏览器对象模型，它提供了很多对象，用于访问浏览器的功能。BOM缺少规范，每个浏览器提供商 又按照自己想法去扩展它，那么浏览器共有对象就成了事实的标准。所以，BOM本身是没有标准的或者还没有哪个组织去将它标准化。</p>
 <h3 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h3><p>BOM的核心是window，它表示浏览器的一个实例，window对象处于JavaScript结构的最顶层，对于每个打开的窗口，系统都会自动为其定义一个window对象。<br><img src="https://i.imgur.com/Zf3Sydr.jpg" alt=""></p>
 <h4 id="window的对象属性"><a href="#window的对象属性" class="headerlink" title="window的对象属性"></a>window的对象属性</h4><p>window对象有一系列的属性，这些属性本身也是对象。</p>
 <table>
@@ -791,7 +462,7 @@ alert(num);
 </tbody>
 </table>
 <p>JavaScript允许通过设置超时值和间歇时间值来调度代码在特定的时刻执行。</p>
-<h2 id="九、DOM基础"><a href="#九、DOM基础" class="headerlink" title="九、DOM基础"></a>九、DOM基础</h2><p>DOM，英文是Document Object Model,即文档对象模型。它描绘了一个层次化的节点树<img src="https://i.imgur.com/trQZx7F.gif" alt=""></p>
+<h2 id="八、DOM基础"><a href="#八、DOM基础" class="headerlink" title="八、DOM基础"></a>八、DOM基础</h2><p>DOM，英文是Document Object Model,即文档对象模型。它描绘了一个层次化的节点树<img src="https://i.imgur.com/trQZx7F.gif" alt=""></p>
 <h3 id="DOM简单操作"><a href="#DOM简单操作" class="headerlink" title="DOM简单操作"></a>DOM简单操作</h3><p>我们可以通过简单的操作定位节点的方法和属性</p>
 <table>
 <thead>
@@ -983,10 +654,10 @@ alert(num);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/18/JavaScript读书笔记/" data-id="cjihd62im0000fc9gke19538b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/18/JavaScript读书笔记/" data-id="cjihgr0hz0000zo9gc83ysn3m" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
 
     </footer>
   </div>
@@ -994,11 +665,11 @@ alert(num);
     
 <nav id="article-nav">
   
-    <a href="/2018/05/12/jQuery学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/04/20/正则表达式的使用和常用的正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          jQuery学习笔记
+          正则表达式的使用和常用的正则表达式
         
       </div>
     </a>
@@ -1025,7 +696,7 @@ alert(num);
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习计划/">学习计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习计划/">学习计划</a></li></ul>
     </div>
   </div>
 
@@ -1035,7 +706,7 @@ alert(num);
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Oracle/" style="font-size: 15px;">Oracle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/学习计划/" style="font-size: 10px;">学习计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+      <a href="/tags/Oracle/" style="font-size: 15px;">Oracle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/学习笔记/" style="font-size: 20px;">学习笔记</a> <a href="/tags/学习计划/" style="font-size: 10px;">学习计划</a>
     </div>
   </div>
 
@@ -1069,11 +740,11 @@ alert(num);
           </li>
         
           <li>
-            <a href="/2018/04/18/JavaScript读书笔记/">JavaScript学习笔记</a>
+            <a href="/2018/04/20/正则表达式的使用和常用的正则表达式/">正则表达式的使用和常用的正则表达式</a>
           </li>
         
           <li>
-            <a href="/2018/04/15/ORA-12514-TNS-监听程序当前无法识别连接描述符中的请求的服务/">ORA-12514: TNS: 监听程序当前无法识别连接描述符中的请求的服务</a>
+            <a href="/2018/04/18/JavaScript读书笔记/">JavaScript学习笔记</a>
           </li>
         
       </ul>
