@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>WireShark抓包分析 | Ning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="WireShark是一款非常好用的抓包工具，自己仿照着网上的分析自己抓着写了写用WireShark抓包分析。">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WireShark抓包分析">
+<meta property="og:url" content="http://yoursite.com/2018/11/24/WireShark抓包分析/index.html">
+<meta property="og:site_name" content="Ning">
+<meta property="og:description" content="WireShark是一款非常好用的抓包工具，自己仿照着网上的分析自己抓着写了写用WireShark抓包分析。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/UaSD9Ne.png">
+<meta property="og:image" content="https://i.imgur.com/1iLpyCE.png">
+<meta property="og:image" content="https://i.imgur.com/5NfNqqY.png">
+<meta property="og:image" content="https://i.imgur.com/xB3O8TZ.png">
+<meta property="og:image" content="https://i.imgur.com/3ywAbGH.png">
+<meta property="og:image" content="https://i.imgur.com/tqctb2o.png">
+<meta property="og:image" content="https://i.imgur.com/DMUr9Qv.png">
+<meta property="og:image" content="https://i.imgur.com/mD6KmRl.png">
+<meta property="og:image" content="https://i.imgur.com/ajV2APi.png">
+<meta property="og:image" content="https://i.imgur.com/xUyYlxE.png">
+<meta property="og:image" content="https://i.imgur.com/gHm8aNy.png">
+<meta property="og:updated_time" content="2018-11-24T04:23:59.660Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WireShark抓包分析">
+<meta name="twitter:description" content="WireShark是一款非常好用的抓包工具，自己仿照着网上的分析自己抓着写了写用WireShark抓包分析。">
+<meta name="twitter:image" content="https://i.imgur.com/UaSD9Ne.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Ning" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/circle.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ning</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-WireShark抓包分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/24/WireShark抓包分析/" class="article-date">
+  <time datetime="2018-11-24T01:56:52.000Z" itemprop="datePublished">2018-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WireShark抓包分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>WireShark是一款非常好用的抓包工具，自己仿照着网上的分析自己抓着写了写用WireShark抓包分析。<a id="more"></a><br>源博客地址：<a href="https://blog.csdn.net/hebbely/article/details/54424823" target="_blank" rel="noopener">https://blog.csdn.net/hebbely/article/details/54424823</a></p>
+<h2 id="tcp报文分析"><a href="#tcp报文分析" class="headerlink" title="tcp报文分析"></a>tcp报文分析</h2><h3 id="封包详细信息"><a href="#封包详细信息" class="headerlink" title="封包详细信息"></a>封包详细信息</h3><p><img src="https://i.imgur.com/UaSD9Ne.png" alt=""></p>
+<pre><code>第一行，物理层。帧Frame 10 指的是要发送的数据块，其中，所抓帧的序号为10，捕获字节数等于传送字节数：432字节；
+第二行，数据链路层。源Mac地址为f4:83:cd:bd:f5:e9；目标Mac地址为cc:b0:da:f1:65:63；
+第三行，IPV4协议，是网络层；源IP地址为192.168.1.1；目标IP地址为192.168.1.101；
+第四行，TCP协议，也称传输控制协议，是传输层；源端口(1900)；目标端口(50810)；序列号(536)；ACK是TCP数据包首部中的确认标志，对已接收到的TCP报文进行确认，值为1表示确认号有效；长度为0；
+</code></pre><h3 id="Frame信息分析"><a href="#Frame信息分析" class="headerlink" title="Frame信息分析"></a>Frame信息分析</h3><p><img src="https://i.imgur.com/1iLpyCE.png" alt=""></p>
+<pre><code>Interface id: 0:    接口id为0
+Encapsulation type: Ethernet (1)  //封装类型
+Arrival Time：到达时间，值为Nov 23, 2018 10:50:52.706697000
+[Time shift for this packet: 0.000000000 seconds]
+EPoch Time：信息出现时间，值为1542941452.706797000秒
+[ Time delta from previous captured frame: 0.000001000 seconds] ：与之前捕获的数据帧时间差：0.000001000秒；
+[Time delta from previous displayed frame: 0.000001000 seconds]：与之前显示的帧时间差：0.000001000秒；
+[Time since reference or first frame: 0.022227000 seconds]：距参考帧或第一帧的时间差：0.022227000秒；
+Frame Number: 10，帧编号为10；
+Frame Length: 54 bytes (432 bits)，帧长度为54字节；
+Capture Length: 54 bytes (432 bits)，捕获到的长度为54字节；
+[Frame is marked: False]，帧标记：无；
+[Frame is ignored: False]，帧被忽略：无；
+[Protocols in frame: eth:ethertype:ip:tcp]：帧内封装的协议层次结构
+[Coloring Rule Name: TCP SYN/FIN]，着色标记的协议名称
+[Coloring Rule String: tcp.flags &amp; 0x02 || tcp.flags.fin == 1] 着色规则显示的字符串
+</code></pre><h3 id="EthernetⅡ信息分析"><a href="#EthernetⅡ信息分析" class="headerlink" title="EthernetⅡ信息分析"></a>EthernetⅡ信息分析</h3><p><img src="https://i.imgur.com/5NfNqqY.png" alt=""></p>
+<pre><code>Destination: LiteonTe_f1:65:63 (cc:b0:da:f1:65:63)，目标Mac地址为cc:b0:da:f1:65:63
+Source: Tp-LinkT_bd:f5:e9 (f4:83:cd:bd:f5:e9)，源Mac地址为f4:83:cd:bd:f5:e9
+Type: IPv4 (0x0800)，0x0800表示使用IP协议
+</code></pre><h3 id="IPv4-协议信息分析"><a href="#IPv4-协议信息分析" class="headerlink" title="IPv4 协议信息分析"></a>IPv4 协议信息分析</h3><p><img src="https://i.imgur.com/xB3O8TZ.png" alt=""></p>
+<pre><code>Internet Protocol Version 4, Src: 192.168.1.1, Dst: 192.168.1.101
+0100 .... = Version: 4 //IPV4协议
+.... 0101 = Header Length: 20 bytes (5)  //包头长度
+Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT) 0000 00.. = Differentiated Services Codepoint: Default (0) .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)                              //区分的服务领域：0x00 (默认的是DSCP：0x00)；
+Total Length: 40                      //IP包总长度
+Identification: 0x3dc3 (15811)        //标志字段
+Flags: 0x02 (Don&apos;t Fragment)          //不支持分组
+Fragment offset: 0                    //分组偏移量为0
+Time to live: 64                     //生存时间为64，TTL通常表示包在被丢弃前最多能经过的路由器个数，当数据包传输到一个路由器之后，TTL就自动减1，如果减到0了还没有传送到目标主机，那么就自动丢失
+Protocol: TCP (6)                     //此包内封装的上层协议为TCP
+Header checksum: 0x7956 [validation disabled]//头部数据的校验和
+[Header checksum status: Unverified] //头部数据校验状态
+Source: 192.168.1.1                //源IP地址
+Destination: 192.168.1.101         //目的IP地址
+[Source GeoIP: Unknown]              //基于地理位置的IP
+[Destination GeoIP: Unknown]
+</code></pre><h3 id="Trasmission-Control-Protocol信息分析"><a href="#Trasmission-Control-Protocol信息分析" class="headerlink" title="Trasmission Control Protocol信息分析"></a>Trasmission Control Protocol信息分析</h3><p><img src="https://i.imgur.com/3ywAbGH.png" alt=""></p>
+<pre><code>Source Port: 1900       //源端口号
+Destination Port: 50810     //目的端口号
+[Stream index: 0]        
+[TCP Segment Len: 0]
+Sequence number: 536    (relative sequence number)  //相对序列号，该数据包的相对序列号为536(此序列号用来确定传送数据的正确位置，且序列号用来侦测丢失的包)
+Acknowledgment number: 622   //是32位确认序列号，值等于1表示数据包收到，确认有效
+Header Length: 20 bytes    //手动的数据包的头字节长度是20字节
+Flags: 0x011 (SYN)         // Flags，含6种标志；ACK：确认序号有效；SYN：同步序号用来发起一个连接；FIN：发端完成发送任务；RST：重新连接；PSH：接收方应该尽快将这个报文段交给应用层；URG：紧急指针(urgentpointer)有效；
+Window size value: 16384    //流量控制的窗口大小
+[Calculated window size: 16384] 
+Checksum: 0x3374 [unverified]   // 16位校验和，检验和覆盖了整个的TCP报文段，由发端计算和存储，并由收端进行验证
+[Checksum Status: Unverified]
+Urgent pointer: 0      //紧急指针(00 00)
+</code></pre><h2 id="二、-http报文分析"><a href="#二、-http报文分析" class="headerlink" title="二、    http报文分析"></a>二、    http报文分析</h2><p>链路层的信息上是以帧的形式进行传输的，帧封装了应用层、传输层、网络层的数据。而Wireshark抓到的就是链路层的一帧；</p>
+<h3 id="封装包详细信息"><a href="#封装包详细信息" class="headerlink" title="封装包详细信息"></a>封装包详细信息</h3><p><img src="https://i.imgur.com/tqctb2o.png" alt=""></p>
+<pre><code>第一行，帧Frame 10指的是要发送的数据块，其中，所抓帧的序号为10，捕获字节数等于传送字节数：431字节；
+第二行，以太网，有线局域网技术，是数据链路层。源Mac地址为 cc:b0:da:f1:65:63,目标Mac地址为f4:83:cd:bd:f5:e9
+第三行，IPV4协议，也称网际协议，是网络层；源IP地址为192.168.1.101,目标IP地址为218.75.123.181；
+第四行，TCP协议，也称传输控制协议，是传输层；源端口(56554)；目标端口(80)；序列号(1)；ACK是TCP数据包首部中的确认标志，对已接收到的TCP报文进行确认，值为1表示确认号有效；长度为377；
+第五行，Http协议，也称超文本传输协议，是应用层。
+</code></pre><h3 id="Http请求报文分析"><a href="#Http请求报文分析" class="headerlink" title="Http请求报文分析"></a>Http请求报文分析</h3><p><img src="https://i.imgur.com/DMUr9Qv.png" alt=""></p>
+<pre><code>GET / HTTP/1.1\r\n
+[Expert Info (Chat/Sequence): GET / HTTP/1.1\r\n]
+Request Method: GET   //方法
+Request URI: /            //路径
+Request Version: HTTP/1.1 //版本
+Host: www.hdu.edu.cn\r\n        // 目标所在主机
+Connection: keep-alive\r\n    //激活连接
+User-Agent                //用户代理，浏览器类型是Netscape，括号内是解释
+Accept-Encoding: gzip, deflate\r\n    //可接受编码，文件格式
+Accept-Language: zh-CN,zh;q=0.9\r\n    //语言中文
+[Full request URI: http://www.hdu.edu.cn/]    //请求路径
+[HTTP request 1/5]    //第一个请求
+[Response in frame: 191]    //回复帧数191
+[Next request in frame: 315]    //下一个请求帧数315
+</code></pre><h3 id="Http响应报文分析"><a href="#Http响应报文分析" class="headerlink" title="Http响应报文分析"></a>Http响应报文分析</h3><p><img src="https://i.imgur.com/mD6KmRl.png" alt=""></p>
+<pre><code>状态行：
+HTTP/1.1 200 OK\r\n
+首部行：
+Date:响应信息创建的时间
+Server:服务器
+Content-Type:内容类型，这里是html
+X-Cache:经过了缓存服务器
+Via: 1.1 wwwcache1.hdu.edu.cn (squid/3.5.26)\r\n    //    路由响应信息
+Connection: keep-alive\r\n    //保持TCP连接
+[HTTP response 1/5]    //第一次回复
+[Time since request: 0.413154000 seconds]    //上次请求时间的间隔
+[Request in frame: 10]    //请求帧数10
+[Next request in frame: 315]    //下一次请求帧数315
+[Next response in frame: 781]    //下一次回复帧数781
+</code></pre><h2 id="DNS报文"><a href="#DNS报文" class="headerlink" title="DNS报文"></a>DNS报文</h2><h3 id="封包详细信息-1"><a href="#封包详细信息-1" class="headerlink" title="封包详细信息"></a>封包详细信息</h3><p><img src="https://i.imgur.com/ajV2APi.png" alt=""></p>
+<pre><code>帧Frame 18 指的是要发送的数据块，其中，所抓帧的序号为18，捕获字节数等于传送字节数：632字节；
+Ethernet II以太网，有线局域网技术，是数据链路层。源Mac地址为(cc:b0:da:f1:65:63)；目标Mac地址为 (00:00:5e:00:01:02)
+IPV4协议，也称网际协议，是网络层；源IP地址为10.66.74.210, 目标IP地址为210.32.32.1
+UDP协议，是传输层；源端口domain64301)；目标端口(53)；
+DNS协议，是应用层。
+</code></pre><h3 id="DNS-查询报文"><a href="#DNS-查询报文" class="headerlink" title="DNS 查询报文"></a>DNS 查询报文</h3><p><img src="https://i.imgur.com/xUyYlxE.png" alt=""></p>
+<pre><code>Transaction ID: 0xfeaf    //标志符，16位比特数，标志该查询
+Flags                        //标志
+0... .... .... .... = Response: Message is a query//0为DNS查询报文
+.000 0... .... .... = Opcode: Standard query (0)//操作码为标准查询
+.... ..0. .... .... = Truncated: Message is not truncated
+                        //信息没有被截断
+.... ...1 .... .... = Recursion desired: Do query recursively
+                        //实行递归查询
+.... .... .0.. .... = Z: reserved (0)
+.... .... ...0 .... = Non-authenticated data: Unacceptable
+问题区域
+Questions:1    //问题数;1
+Answer RRs: 0    //回答RR数
+Authority RRs: 0        //权威RR数
+Additional RRs: 0    //附加RR数
+Queries
+accounts.google.com: type A, class IN    //查询一个主机地址
+    Name: accounts.google.com
+    [Name Length: 19]
+    [Label Count: 3]
+    Type: A (Host Address) (1)
+    Class: IN (0x0001)
+                //包含最初请求的名字的资源记录
+</code></pre><h3 id="DNS响应报文"><a href="#DNS响应报文" class="headerlink" title="DNS响应报文"></a>DNS响应报文</h3><p><img src="https://i.imgur.com/gHm8aNy.png" alt=""></p>
+<pre><code>首部区域：
+Transaction ID: 0xfeaf    //16位比特数，与对应的查询报文标识符相同
+Flags:0x8180 Standard query response, No error //标志
+Questions: 1        //问题数：1 表示只查询一个主机
+Answer RRs: 1                //回答RR数：1 表示该主机对应的有1条资源记录
+Authority RRs: 4        //权威RR数
+Additional RRs: 0        //附加RR数
+问题区域
+问题（问题变量数）accounts.google.com: type A, class IN
+                        Name: accounts.google.com
+                        [Name Length: 19]
+                           [Label Count: 3]
+Type: A (Host Address) (1)
+Class: IN (0x0001)    //最初请求的名字的资源记录
+回答（资源记录的变量数）：Answers
+            1条RR,即主机与IP的1条资源记录
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/24/WireShark抓包分析/" data-id="cjoutsj9g0001t89gp8hy2nt9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/23/创新实践2学期计划/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">创新实践2学期计划</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习计划/">学习计划</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Oracle/" style="font-size: 15px;">Oracle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/学习笔记/" style="font-size: 20px;">学习笔记</a> <a href="/tags/学习计划/" style="font-size: 15px;">学习计划</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/24/WireShark抓包分析/">WireShark抓包分析</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/23/创新实践2学期计划/">创新实践2学期计划</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/07/Oracle学习总结/">Oracle学习总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/28/git教程学习/">git教程学习</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/12/jQuery学习笔记/">jQuery学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
