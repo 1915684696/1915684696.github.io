@@ -5,20 +5,20 @@
   
 
   
-  <title>微信小程序中padding-right和margin-right无效怎么办 | Ning</title>
+  <title>小程序分包加载 | Ning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在开发小程序中遇到样式padding-right和margin-right无效，调试发现设置了padding后，宽度已经大于页面的实际宽度，除了设置float：right之外，找不到办法让右侧padding显示出来。">
+  <meta name="description" content="相信开发小程序的童鞋一定会为官方的小程序包大小不得超过2M这一限制而头疼不已，官方推出小程序分包加载这一共功能，对于万千小程序开发者来说这无疑是天大的喜讯，废话不多说，动手之前建议认真阅读官方文档，以避免不必要的“趟坑之旅”，现罗列以下几点与诸位共勉：">
 <meta name="keywords" content="小程序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微信小程序中padding-right和margin-right无效怎么办">
-<meta property="og:url" content="http://yoursite.com/2019/05/25/微信小程序中padding-right和margin-right无效怎么办/index.html">
+<meta property="og:title" content="小程序分包加载">
+<meta property="og:url" content="http://yoursite.com/2019/06/02/小程序分包加载/index.html">
 <meta property="og:site_name" content="Ning">
-<meta property="og:description" content="在开发小程序中遇到样式padding-right和margin-right无效，调试发现设置了padding后，宽度已经大于页面的实际宽度，除了设置float：right之外，找不到办法让右侧padding显示出来。">
+<meta property="og:description" content="相信开发小程序的童鞋一定会为官方的小程序包大小不得超过2M这一限制而头疼不已，官方推出小程序分包加载这一共功能，对于万千小程序开发者来说这无疑是天大的喜讯，废话不多说，动手之前建议认真阅读官方文档，以避免不必要的“趟坑之旅”，现罗列以下几点与诸位共勉：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-25T11:28:44.376Z">
+<meta property="og:updated_time" content="2019-06-02T04:26:24.146Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微信小程序中padding-right和margin-right无效怎么办">
-<meta name="twitter:description" content="在开发小程序中遇到样式padding-right和margin-right无效，调试发现设置了padding后，宽度已经大于页面的实际宽度，除了设置float：right之外，找不到办法让右侧padding显示出来。">
+<meta name="twitter:title" content="小程序分包加载">
+<meta name="twitter:description" content="相信开发小程序的童鞋一定会为官方的小程序包大小不得超过2M这一限制而头疼不已，官方推出小程序分包加载这一共功能，对于万千小程序开发者来说这无疑是天大的喜讯，废话不多说，动手之前建议认真阅读官方文档，以避免不必要的“趟坑之旅”，现罗列以下几点与诸位共勉：">
   
     <link rel="alternate" href="/atom.xml" title="Ning" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-微信小程序中padding-right和margin-right无效怎么办" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-小程序分包加载" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/05/25/微信小程序中padding-right和margin-right无效怎么办/" class="article-date">
-  <time datetime="2019-05-25T11:17:41.000Z" itemprop="datePublished">2019-05-25</time>
+    <a href="/2019/06/02/小程序分包加载/" class="article-date">
+  <time datetime="2019-06-02T04:25:41.000Z" itemprop="datePublished">2019-06-02</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      微信小程序中padding-right和margin-right无效怎么办
+      小程序分包加载
     </h1>
   
 
@@ -87,14 +87,70 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在开发小程序中遇到样式padding-right和margin-right无效，调试发现设置了padding后，宽度已经大于页面的实际宽度，除了设置float：right之外，找不到办法让右侧padding显示出来。<a id="more"></a></p>
-<hr>
-<p>解决：在设置了padding之后又设置了width：100%，所以右侧显示不出来，加个box-sizing:border-box;就可以了，还是css不够熟练。</p>
+        <p>相信开发小程序的童鞋一定会为官方的小程序包大小不得超过2M这一限制而头疼不已，官方推出小程序分包加载这一共功能，对于万千小程序开发者来说这无疑是天大的喜讯，废话不多说，动手之前建议认真阅读官方文档，以避免不必要的“趟坑之旅”，现罗列以下几点与诸位共勉：<a id="more"></a></p>
+<h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><p>微信 6.6 客户端，1.7.3 及以上基础库开始支持，请更新至最新客户端版本，开发者工具请使用 1.01.1712150 及以上版本，可<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">点此下载</a></p>
+<h3 id="如何分包"><a href="#如何分包" class="headerlink" title="如何分包"></a>如何分包</h3><p>在构建小程序分包项目时，构建会输出一个或多个功能的分包，其中每个分包小程序必定含有一个主包，所谓的主包，即放置默认启动页面/TabBar 页面，以及一些所有分包都需用到公共资源/JS 脚本，而分包则是根据开发者的配置进行划分。</p>
+<p>目前小程序分包大小有以下限制：</p>
+<ul>
+<li>整个小程序所有分包大小不超过 8M</li>
+<li>单个分包/主包大小不能超过 2M</li>
+</ul>
+<p>在小程序启动时，默认会下载主包并启动主包内页面，如果用户需要打开分包内某个页面，客户端会把对应分包下载下来，下载完成后再进行展示。对小程序进行分包，可以优化小程序首次启动的下载时间，以及在多团队共同开发时可以更好的解耦协作。</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>假设支持分包的小程序目录结构如下：</p>
+<pre><code>├── app.js
+├── app.json
+├── app.wxss
+├── packageA
+│   └── pages
+│       ├── cat
+│       └── dog
+├── packageB
+│   └── pages
+│       ├── apple
+│       └── banana
+├── pages
+│   ├── index
+│   └── logs
+└── utils
+</code></pre><p>开发者通过在 app.json subPackages 字段声明项目分包结构：</p>
+<pre><code>{
+  &quot;pages&quot;:[
+    &quot;pages/index&quot;,
+    &quot;pages/logs&quot;
+  ],
+  &quot;subPackages&quot;: [
+    {
+      &quot;root&quot;: &quot;packageA&quot;,
+      &quot;pages&quot;: [
+        &quot;pages/cat&quot;,
+        &quot;pages/dog&quot;
+      ]
+    }, {
+      &quot;root&quot;: &quot;packageB&quot;,
+      &quot;pages&quot;: [
+        &quot;pages/apple&quot;,
+        &quot;pages/banana&quot;
+      ]
+    }
+  ]
+}
+</code></pre><h3 id="打包原则"><a href="#打包原则" class="headerlink" title="打包原则"></a>打包原则</h3><ul>
+<li>声明 subPackages 后，将按 subPackages 配置路径进行打包，subPackages 配置路径外的目录将被打包到 app（主包） 中</li>
+<li>app（主包）也可以有自己的 pages（即最外层的 pages 字段）</li>
+<li>subPackage 的根目录不能是另外一个 subPackage 内的子目录</li>
+<li>首页的 TAB 页面必须在 app（主包）内</li>
+</ul>
+<h3 id="引用原则"><a href="#引用原则" class="headerlink" title="引用原则"></a>引用原则</h3><ul>
+<li>packageA 无法 require packageB JS 文件，但可以 require app、自己 package 内的 JS 文件</li>
+<li>packageA 无法 import packageB 的 template，但可以 require app、自己 package 内的 template</li>
+<li>packageA 无法使用 packageB 的资源，但可以使用 app、自己 package 内的资源</li>
+</ul>
+<h3 id="低版本兼容"><a href="#低版本兼容" class="headerlink" title="低版本兼容"></a>低版本兼容</h3><p>由微信后台编译来处理旧版本客户端的兼容，后台会编译两份代码包，一份是分包后代码，另外一份是整包的兼容代码。 新客户端用分包，老客户端还是用的整包，完整包会把各个 subpackage 里面的路径放到 pages 中。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/25/微信小程序中padding-right和margin-right无效怎么办/" data-id="cjwefrjdv000r289g7p03bdzu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/02/小程序分包加载/" data-id="cjwefrjdq000n289gx9xrynlj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
@@ -105,19 +161,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/06/02/小程序分包加载/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          小程序分包加载
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/05/18/微信小程序onLaunch异步，首页onLoad先执行？/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/05/25/微信小程序中padding-right和margin-right无效怎么办/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">微信小程序onLaunch异步，首页onLoad先执行？</div>
+      <div class="article-nav-title">微信小程序中padding-right和margin-right无效怎么办</div>
     </a>
   
 </nav>
